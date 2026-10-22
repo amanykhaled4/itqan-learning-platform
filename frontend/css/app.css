@@ -1038,6 +1038,7 @@ a.row:hover .arrow {
     flex-direction: column;
     justify-content: center;
     background: linear-gradient(135deg, var(--surface-2), var(--surface));
+    container-type: inline-size;
 }
 
 .hero::before {
@@ -1093,6 +1094,13 @@ a.row:hover .arrow {
     height: 220px;
     transform: translateY(-50%);
     pointer-events: none;
+}
+
+/* Hide the decoration when the card is too narrow to keep it clear of the text */
+@container (max-width: 760px) {
+    .hero-decoration {
+        display: none;
+    }
 }
 
 .hero-decoration::before,

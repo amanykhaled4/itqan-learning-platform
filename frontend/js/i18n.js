@@ -148,7 +148,7 @@ const translations = {
         minutes: (n) => arCount(n, AR.minutes),
         completed: "مكتمل",
         pageLesson: "الدرس",
-        markComplete: "أكملت الدرس",
+        markComplete: "تحديد كمكتمل",
         markIncomplete: "إلغاء الإكمال",
         lessonDone: "أحسنت! تم تسجيل إكمال الدرس ✦",
         previousLesson: "الدرس السابق",

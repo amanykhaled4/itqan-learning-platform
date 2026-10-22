@@ -11,3 +11,6 @@ obj/
 .vs/
 .vscode/
 *.user
+
+# Local Claude Code config
+.claude/
