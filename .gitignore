@@ -1,0 +1,13 @@
+# .NET build output
+bin/
+obj/
+
+# Local SQLite database (created automatically on first run)
+*.db
+*.db-shm
+*.db-wal
+
+# Editors
+.vs/
+.vscode/
+*.user
