@@ -1,0 +1,12 @@
+# Render Blueprint: one free web service built from the Dockerfile.
+# The SQLite database lives inside the container, so it is recreated (with the
+# demo account) whenever the service restarts.
+services:
+  - type: web
+    name: itqan-learning-platform
+    runtime: docker
+    plan: free
+    healthCheckPath: /index.html
+    envVars:
+      - key: Jwt__Key
+        generateValue: true

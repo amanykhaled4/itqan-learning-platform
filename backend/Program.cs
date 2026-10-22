@@ -67,6 +67,11 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
+// Never run a real deployment with the placeholder key from appsettings.json
+var jwtKey = app.Configuration["Jwt:Key"] ?? "";
+if (!app.Environment.IsDevelopment() && (jwtKey.Length < 32 || jwtKey.StartsWith("set-a-real-secret")))
+    throw new InvalidOperationException("Set a real Jwt__Key (at least 32 characters) before running outside development.");
+
 // ---------- Create / update the database and add the starting content ----------
 using (var scope = app.Services.CreateScope())
 {

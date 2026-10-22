@@ -139,11 +139,19 @@ All endpoints except register and login need an `Authorization: Bearer <token>` 
 
 ## Configuration
 
-`backend/appsettings.Development.json` contains a development-only JWT key. For any real deployment, set your own secret with an environment variable:
+`backend/appsettings.Development.json` contains a development-only JWT key. For any real deployment, set your own secret with an environment variable — outside development the API refuses to start with the placeholder key:
 
 ```bash
 Jwt__Key="a-long-random-secret"
 ```
+
+## Deploy
+
+The repo includes a `Dockerfile` (API + front end in one container) and a Render Blueprint (`render.yaml`) that generates the JWT secret automatically:
+
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/amanykhaled4/itqan-learning-platform)
+
+On the free plan the SQLite database lives inside the container, so it starts fresh (with the demo account) after each restart.
 
 ## Notes
 
