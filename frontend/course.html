@@ -1,296 +1,59 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>المادة | منصة إتقان</title>
-
-    <script src="https://kit.fontawesome.com/4d0f4f7352.js"
-            crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="course.css">
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة إتقان</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%23f4b860'/><text x='50' y='70' font-family='Arial' font-size='58' font-weight='800' fill='%2318212f' text-anchor='middle'>إ</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/boot.js"></script>
 </head>
+<body>
+    <aside class="sidebar" id="sidebar"></aside>
 
+    <main class="main">
+        <header class="topbar" id="topbar"></header>
 
-<body class="course-page">
+        <div class="container stack">
 
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="dashboard.html" data-i18n="navHome"></a>
+                <i class="fa-solid fa-chevron-left flip-ltr"></i>
+                <span id="crumbSubject"></span>
+            </nav>
 
-    <main class="course-container">
+            <section class="card page-header" id="subjectHeader">
+                <div class="skeleton row fill"></div>
+            </section>
 
-
-        <!-- Top -->
-
-        <header class="course-topbar">
-
-
-            <div class="course-brand">
-
-                <div class="brand-small">
-                    إ
+            <section class="card">
+                <div class="card-head">
+                    <div>
+                        <span class="eyebrow" data-i18n="pageCourse"></span>
+                        <h2 data-i18n="unitsTitle"></h2>
+                    </div>
+                    <span class="pill gold" id="unitsCount"></span>
                 </div>
-
-                <strong>
-                    منصة إتقان
-                </strong>
-
-            </div>
-
-
-        </header>
-
-
-
-        <!-- Intro -->
-
-        <section class="course-intro">
-
-
-            <div class="subject-mark" id="subjectMark">
-                ∑
-            </div>
-
-
-            <div>
-
-                <span class="intro-label">
-                    المادة الدراسية
-                </span>
-
-                <h1 id="courseTitle">
-                    الرياضيات
-                </h1>
-
-                <p id="courseDescription">
-                    ابدئي رحلتك التعليمية وتقدمي خطوة بخطوة.
-                </p>
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- Units -->
-
-        <section class="units-section">
-
-
-            <div class="section-heading">
-
-
-                <div>
-
-                    <span>
-                        المحتوى التعليمي
-                    </span>
-
-                    <h2>
-                        الوحدات الدراسية
-                    </h2>
-
+                <div id="units">
+                    <div class="list">
+                        <div class="skeleton row"></div>
+                        <div class="skeleton row"></div>
+                        <div class="skeleton row"></div>
+                    </div>
                 </div>
-
-
-                <span class="unit-count">
-                    ٣ وحدات
-                </span>
-
-
-            </div>
-
-
-
-            <div class="units-grid">
-
-
-                <!-- Unit 1 -->
-
-                <article class="unit-card">
-
-
-                    <div class="unit-number">
-                        01
-                    </div>
-
-
-                    <div class="unit-icon">
-
-                        <i class="fa-solid fa-lightbulb"></i>
-
-                    </div>
-
-
-                    <span>
-                        الوحدة الأولى
-                    </span>
-
-
-                    <h3 id="unitOneTitle">
-                        الأساسيات
-                    </h3>
-
-
-                    <p>
-                        ابدئي بالمفاهيم الأساسية للمادة.
-                    </p>
-
-
-                    <a href="#"
-                       class="unit-button">
-
-                        ابدئي الوحدة
-
-                        <i class="fa-solid fa-arrow-left"></i>
-
-                    </a>
-
-
-                </article>
-
-
-
-                <!-- Unit 2 -->
-
-                <article class="unit-card">
-
-
-                    <div class="unit-number">
-                        02
-                    </div>
-
-
-                    <div class="unit-icon">
-
-                        <i class="fa-solid fa-layer-group"></i>
-
-                    </div>
-
-
-                    <span>
-                        الوحدة الثانية
-                    </span>
-
-
-                    <h3 id="unitTwoTitle">
-                        المفاهيم والتطبيقات
-                    </h3>
-
-
-                    <p>
-                        تعلّمي المفاهيم وطبقي ما تعلمته.
-                    </p>
-
-
-                    <a href="#"
-                       class="unit-button">
-
-                        ابدئي الوحدة
-
-                        <i class="fa-solid fa-arrow-left"></i>
-
-                    </a>
-
-
-                </article>
-
-
-
-                <!-- Unit 3 -->
-
-                <article class="unit-card">
-
-
-                    <div class="unit-number">
-                        03
-                    </div>
-
-
-                    <div class="unit-icon">
-
-                        <i class="fa-solid fa-circle-check"></i>
-
-                    </div>
-
-
-                    <span>
-                        الوحدة الثالثة
-                    </span>
-
-
-                    <h3 id="unitThreeTitle">
-                        التدريب والمراجعة
-                    </h3>
-
-
-                    <p>
-                        راجعي معلوماتك واختبري فهمك.
-                    </p>
-
-
-                    <a href="#"
-                       class="unit-button">
-
-                        ابدئي الوحدة
-
-                        <i class="fa-solid fa-arrow-left"></i>
-
-                    </a>
-
-
-                </article>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- Small message -->
-
-        <div class="course-tip">
-
-
-            <span>
-
-                <i class="fa-solid fa-star"></i>
-
-            </span>
-
-
-            <p>
-                استمري، كل درس جديد يقربك من هدفك.
-            </p>
-
+            </section>
 
         </div>
-
-
     </main>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-    <script src="script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pages/course.js"></script>
 </body>
-
 </html>

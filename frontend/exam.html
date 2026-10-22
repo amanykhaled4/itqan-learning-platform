@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة إتقان</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%23f4b860'/><text x='50' y='70' font-family='Arial' font-size='58' font-weight='800' fill='%2318212f' text-anchor='middle'>إ</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/boot.js"></script>
+</head>
+<body>
+    <aside class="sidebar" id="sidebar"></aside>
+
+    <main class="main">
+        <header class="topbar" id="topbar"></header>
+
+        <div class="container stack" id="examPage">
+
+            <nav class="breadcrumb" aria-label="breadcrumb">
+                <a href="exams.html" data-i18n="navExams"></a>
+                <i class="fa-solid fa-chevron-left flip-ltr"></i>
+                <span id="crumbExam"></span>
+            </nav>
+
+            <!-- Sticky bar: answered count + timer -->
+            <section class="card exam-bar hidden" id="examBar">
+                <strong id="answeredText"></strong>
+                <div class="progress"><span id="answeredBar"></span></div>
+                <span class="timer" id="timer"><i class="fa-regular fa-clock"></i><span id="timerText">00:00</span></span>
+            </section>
+
+            <!-- Result (shown after submitting) -->
+            <section class="card result hidden" id="result"></section>
+
+            <div class="stack" id="questions">
+                <div class="skeleton row"></div>
+                <div class="skeleton row"></div>
+            </div>
+
+            <div class="actions hidden" id="examActions">
+                <button type="button" class="btn btn-primary" id="submitBtn">
+                    <i class="fa-solid fa-paper-plane"></i><span data-i18n="submitExam"></span>
+                </button>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pages/exam.js"></script>
+</body>
+</html>

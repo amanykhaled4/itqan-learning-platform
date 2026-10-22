@@ -1,327 +1,90 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>تسجيل الدخول | منصة إتقان</title>
-
-    <link rel="stylesheet" href="login.css">
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-          <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Itqan — a bilingual learning platform with lessons, auto-graded exams and progress tracking.">
+    <title>منصة إتقان</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%23f4b860'/><text x='50' y='70' font-family='Arial' font-size='58' font-weight='800' fill='%2318212f' text-anchor='middle'>إ</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/boot.js"></script>
 </head>
-
-
 <body>
+    <div class="auth-page">
 
-    <div class="page">
-
-
-        <!-- الجانب التعريفي -->
-
-        <section class="welcome-section">
-
-
-            <div class="logo">
-
-                <div class="logo-icon">
-                    إ
-                </div>
-
-                <div>
-
-                    <h2>
-                        منصة إتقان
-                    </h2>
-
-                    <span>
-                        منصة تعليمية للطلاب
-                    </span>
-
-                </div>
-
+        <aside class="auth-side">
+            <div class="brand">
+                <span class="brand-icon" data-i18n="brandIcon">إ</span>
+                <span><strong data-i18n="brandName"></strong><small data-i18n="brandTagline"></small></span>
             </div>
 
-
-
-            <div class="welcome-content">
-
-
-                <span class="small-title">
-                    مرحباً بك في عالم التعلم
-                </span>
-
-
-                <h1>
-
-                    مستقبلك يبدأ
-
-                    <br>
-
-                    <span>
-                        من هنا
-                        <i class="fa-solid fa-star"></i>
-                    </span>
-
-                </h1>
-
-
-                <p>
-
-                    تعلم بطريقة مختلفة، تابع تقدمك،
-                    وطوّر مهاراتك من خلال تجربة تعليمية
-                    مصممة خصيصًا لتساعدك على النجاح.
-
-                </p>
-
-
-
-                <div class="features">
-
-
-                    <div class="feature">
-
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-check"></i>
-                        </div>
-
-                        <span>
-                            دروس منظمة وسهلة
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="feature">
-
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-check"></i>
-                        </div>
-
-                        <span>
-                            اختبارات وتقييم مستمر
-                        </span>
-
-                    </div>
-
-
-
-                    <div class="feature">
-
-                        <div class="feature-icon">
-                            <i class="fa-solid fa-check"></i>
-                        </div>
-
-                        <span>
-                            متابعة مستوى تقدمك
-                        </span>
-
-                    </div>
-
-
-                </div>
-
+            <div>
+                <h1><span data-i18n="authHeadline1"></span><br><span data-i18n="authHeadline2"></span> <i class="fa-solid fa-star"></i></h1>
+                <p data-i18n="authText"></p>
+                <ul class="features">
+                    <li><i class="fa-solid fa-check"></i><span data-i18n="feature1"></span></li>
+                    <li><i class="fa-solid fa-check"></i><span data-i18n="feature2"></span></li>
+                    <li><i class="fa-solid fa-check"></i><span data-i18n="feature3"></span></li>
+                </ul>
             </div>
 
+            <small data-i18n="authFooter"></small>
+        </aside>
 
-
-            <div class="bottom-text">
-
-                <span>
-                    ابدأ رحلتك التعليمية اليوم
-                </span>
-
-                <span>
-                    <i class="fa-solid fa-star"></i>
-                </span>
-
+        <main class="auth-main">
+            <div class="auth-tools">
+                <button type="button" class="icon-btn" id="langBtn" data-i18n-label="switchLanguage"><i class="fa-solid fa-language"></i></button>
+                <button type="button" class="icon-btn" id="themeBtn" data-i18n-label="toggleTheme"><i class="fa-solid fa-moon"></i></button>
             </div>
 
-
-        </section>
-
-
-
-        <!-- قسم تسجيل الدخول -->
-
-        <section class="login-section">
-
-
-            <div class="login-card">
-
-
-                <div class="login-header">
-
-
-                    <div class="user-icon">
-                        <i class="fa-solid fa-circle-user"></i>
-                    </div>
-
-
-                    <h1>
-                        مرحباً
-                    </h1>
-
-
-                    <p>
-                        سجل دخولك للوصول إلى حسابك
-                    </p>
-
-
+            <div class="auth-card">
+                <div class="auth-card-head">
+                    <h2 data-i18n="loginTitle"></h2>
+                    <p data-i18n="loginSubtitle"></p>
                 </div>
 
+                <form id="loginForm" novalidate>
+                    <div class="form-error" id="formError" role="alert"></div>
 
-
-                <form>
-
-
-                    <!-- البريد الإلكتروني -->
-
-                    <div class="input-group">
-
-
-                        <label>
-                            البريد الإلكتروني
-                        </label>
-
-
-                        <div class="input-box">
-
-
-                            <span>
-                                <i class="fa-solid fa-envelope"></i>
-                            </span>
-
-
-                            <input
-                                type="email"
-                                id="email"
-                                placeholder="أدخل بريدك الإلكتروني"
-                            >
-
-
+                    <div class="field">
+                        <label for="email" data-i18n="email"></label>
+                        <div class="input-wrap">
+                            <i class="fa-solid fa-envelope"></i>
+                            <input class="input" type="email" id="email" autocomplete="email" data-i18n-placeholder="emailPlaceholder" dir="ltr">
                         </div>
-
                     </div>
 
-
-
-                    <!-- كلمة المرور -->
-
-                    <div class="input-group">
-
-
-                        <label>
-                            كلمة المرور
-                        </label>
-
-
-                        <div class="input-box">
-
-
-                            <span>
-                                <i class="fa-solid fa-lock"></i>
-                            </span>
-
-
-                            <input
-                                type="password"
-                                id="password"
-                                placeholder="أدخل كلمة المرور"
-                            >
-
-
-                            <button
-                                type="button"
-                                class="show-password">
-
-                                <i class="fa-solid fa-eye"></i>
-
-                            </button>
-
-
+                    <div class="field">
+                        <label for="password" data-i18n="password"></label>
+                        <div class="input-wrap">
+                            <i class="fa-solid fa-lock"></i>
+                            <input class="input" type="password" id="password" autocomplete="current-password" data-i18n-placeholder="passwordPlaceholder">
+                            <button type="button" class="toggle-password" data-i18n-label="showPassword"><i class="fa-solid fa-eye"></i></button>
                         </div>
-
                     </div>
 
-
-
-                    <div class="login-options">
-
-
-                        <label class="remember">
-
-                            <input type="checkbox">
-
-                            <span>
-                                تذكرني
-                            </span>
-
-                        </label>
-
-
-                        <a href="register.html">
-                            إنشاء حساب جديد
-                        </a>
-
-
-                    </div>
-
-
-
-                    <button
-                        type="button"
-                        class="login-button"
-                        id="loginBtn">
-
-                        تسجيل الدخول
-
+                    <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                        <span data-i18n="login"></span><i class="fa-solid fa-arrow-left flip-ltr"></i>
                     </button>
-
-
                 </form>
 
-
-
-                <p class="register-text">
-
-                    ليس لديك حساب؟
-
-                    <a href="#">
-                        إنشاء حساب جديد
-                    </a>
-
+                <p class="auth-switch">
+                    <span data-i18n="noAccount"></span>
+                    <a href="register.html" data-i18n="createAccount"></a>
                 </p>
-
-
             </div>
-
-
-        </section>
-
+        </main>
 
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script src="script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pages/auth.js"></script>
 </body>
-
 </html>

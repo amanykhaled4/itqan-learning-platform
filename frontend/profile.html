@@ -1,486 +1,125 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>ملفي الشخصي | منصة إتقان</title>
-
-    <script src="https://kit.fontawesome.com/4d0f4f7352.js"
-            crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="profile.css">
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة إتقان</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%23f4b860'/><text x='50' y='70' font-family='Arial' font-size='58' font-weight='800' fill='%2318212f' text-anchor='middle'>إ</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/boot.js"></script>
 </head>
+<body>
+    <aside class="sidebar" id="sidebar"></aside>
 
+    <main class="main">
+        <header class="topbar" id="topbar"></header>
 
-<body class="profile-page">
+        <div class="container stack">
 
+            <section class="card profile-head" id="profileHead">
+                <div class="skeleton row fill"></div>
+            </section>
 
-    <aside class="sidebar">
+            <section class="grid grid-4" id="stats">
+                <div class="skeleton row"></div>
+                <div class="skeleton row"></div>
+                <div class="skeleton row"></div>
+                <div class="skeleton row"></div>
+            </section>
 
-        <div class="brand">
+            <div class="grid grid-2">
 
-            <div class="brand-icon">
-                إ
-            </div>
-
-            <div>
-                <h2>منصة إتقان</h2>
-                <span>رحلتك نحو التميز</span>
-            </div>
-
-        </div>
-
-
-        <div class="menu-title">
-            القائمة الرئيسية
-        </div>
-
-<nav>
-
-    <a href="#" class="menu-item active">
-<i class="fa-solid fa-house"></i>
-        الرئيسية
-    </a>
-
-    <a href="exams.html" class="menu-item">
-        <i class="fa-solid fa-clipboard-check"></i>
-        الاختبارات
-    </a>
-
-<a href="progress.html" class="menu-item">
-            <i class="fa-solid fa-chart-line"></i>
-        تقدمي
-    </a>
-
-
-    <div class="menu-title account-title">
-        حسابي
-    </div>
-
-
-    <a href="profile.html" class="menu-item">
-        <i class="fa-solid fa-user"></i>
-        الملف الشخصي
-    </a>
-
-    <a href="settings.html" class="menu-item">
-        <i class="fa-solid fa-gear"></i>
-        الإعدادات
-    </a>
-
-    <a href="#" class="menu-item logout-item" id="logoutBtn">
-        <i class="fa-solid fa-right-from-bracket"></i>
-        تسجيل الخروج
-    </a>
-
-</nav>
-
-
-        <div class="sidebar-bottom">
-
-            <div class="help-box">
-
-               <div class="help-icon">
-    <i class="fa-solid fa-circle-question"></i>
-</div>
-
-                <div>
-                    <strong>تحتاجين مساعدة؟</strong>
-                    <span>نحن هنا لمساعدتك</span>
-                </div>
-
-            </div>
-
-        </div>
-
-    </aside>
-    <main class="profile-wrapper"> 
-
-
-        <!-- HEADER -->
-
-        <header class="profile-header">
-
-            <div class="brand">
-
-                <div class="brand-logo" id="profileLogo">
-                    إ
-                </div>
-
-                <div>
-
-                    <strong>
-                        منصة إتقان
-                    </strong>
-
-                    <span>
-                        التعليم يبدأ بخطوة
-                    </span>
-
-                </div>
-
-            </div>
-
-            <div class="page-name">
-                الملف الشخصي
-            </div>
-        </header>
-
-
-
-        <!-- PROFILE -->
-
-        <section class="profile-layout">
-
-
-            <!-- PROFILE CARD -->
-
-            <div class="profile-card">
-
-
-                <div class="gold-line"></div>
-
-
-                <div class="avatar-area">
-
-                    <div class="avatar-big" id="profileAvatar">
-                        أ
-                    </div>
-
-                    <div class="online">
-                        نشط
-                    </div>
-
-                </div>
-
-
-                <span class="student-label">
-                    الطالبة
-                </span>
-
-
-                <h1 id="profileName">
-                    -
-                </h1>
-
-
-                <p class="student-email" id="profileEmail">
-                    -
-                </p>
-
-
-                <button class="edit-button">
-                    <i class="fa-solid fa-pen-to-square"></i>
-                    تعديل الملف
-                </button>
-
-
-                <div class="join-date">
-
-                    <span>
-                        عضو في منصة إتقان منذ
-                    </span>
-
-                    <strong>
-                        ٢٠٢٦
-                    </strong>
-
-                </div>
-
-
-            </div>
-
-
-
-            <!-- INFORMATION -->
-
-            <div class="information-card">
-
-
-                <div class="card-heading">
-
-                    <span>
-                        معلومات الحساب
-                    </span>
-
-                    <h2>
-                        بياناتي
-                    </h2>
-
-                </div>
-
-
-
-                <div class="info-list">
-
-
-                    <!-- GRADE -->
-
-                    <div class="info-row">
-
-                        <div class="info-icon">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-
+                <!-- Edit details -->
+                <section class="card">
+                    <div class="card-head">
                         <div>
-
-                            <span>
-                                المرحلة الدراسية
-                            </span>
-
-                            <strong id="profileGrade">
-                                -
-                            </strong>
-
+                            <span class="eyebrow" data-i18n="accountInfo"></span>
+                            <h2 data-i18n="editProfile"></h2>
                         </div>
-
                     </div>
-
-
-
-                    <!-- EMAIL -->
-
-                    <div class="info-row">
-
-                        <div class="info-icon">
-                            <i class="fa-solid fa-envelope"></i>
+                    <form class="stack" id="profileForm" novalidate>
+                        <div class="form-error" id="profileError" role="alert"></div>
+                        <div class="field">
+                            <label for="fullName" data-i18n="fullName"></label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-user"></i>
+                                <input class="input" id="fullName" maxlength="80" autocomplete="name">
+                            </div>
                         </div>
+                        <div class="field">
+                            <label for="email" data-i18n="email"></label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-envelope"></i>
+                                <input class="input" id="email" disabled dir="ltr">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label for="grade" data-i18n="grade"></label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                                <select class="select" id="grade">
+                                    <option value="الأول الثانوي"></option>
+                                    <option value="الثاني الثانوي"></option>
+                                    <option value="الثالث الثانوي"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i><span data-i18n="save"></span></button>
+                        </div>
+                    </form>
+                </section>
 
+                <!-- Change password -->
+                <section class="card">
+                    <div class="card-head">
                         <div>
-
-                            <span>
-                                البريد الإلكتروني
-                            </span>
-
-                            <strong id="profileInfoEmail">
-                                -
-                            </strong>
-
+                            <span class="eyebrow" data-i18n="accountInfo"></span>
+                            <h2 data-i18n="changePassword"></h2>
                         </div>
-
                     </div>
-
-
-
-                    <!-- ACCOUNT STATUS -->
-
-                    <div class="info-row">
-
-                        <div class="info-icon">
-                            <i class="fa-solid fa-circle-check"></i>
+                    <form class="stack" id="passwordForm" novalidate>
+                        <div class="form-error" id="passwordError" role="alert"></div>
+                        <div class="field">
+                            <label for="currentPassword" data-i18n="currentPassword"></label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-lock"></i>
+                                <input class="input" type="password" id="currentPassword" autocomplete="current-password">
+                            </div>
                         </div>
-
-                        <div>
-
-                            <span>
-                                حالة الحساب
-                            </span>
-
-                            <strong class="active">
-                                الحساب نشط
-                            </strong>
-
+                        <div class="field">
+                            <label for="newPassword" data-i18n="newPassword"></label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-key"></i>
+                                <input class="input" type="password" id="newPassword" autocomplete="new-password">
+                            </div>
                         </div>
-
-                    </div>
-
-
-                </div>
-
-
-
-                <!-- PROGRESS -->
-
-                <div class="progress-section">
-
-                    <div class="progress-top">
-
-                        <span>
-                            مستوى التقدم التعليمي
-                        </span>
-
-                        <strong>
-                            ٧٥٪
-                        </strong>
-
-                    </div>
-
-
-                    <div class="progress-bar">
-
-                        <div class="progress-fill"></div>
-
-                    </div>
-
-
-                    <p>
-                        استمري في التقدم، أنتِ تسيرين بشكل رائع.
-                    </p>
-
-                </div>
-
+                        <div class="field">
+                            <label for="confirmPassword" data-i18n="confirmPassword"></label>
+                            <div class="input-wrap">
+                                <i class="fa-solid fa-key"></i>
+                                <input class="input" type="password" id="confirmPassword" autocomplete="new-password">
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button type="submit" class="btn btn-outline"><i class="fa-solid fa-shield-halved"></i><span data-i18n="updatePassword"></span></button>
+                        </div>
+                    </form>
+                </section>
 
             </div>
-
-
-        </section>
-
-
-
-        <!-- STATS -->
-
-        <section class="achievement-section">
-
-
-            <div class="section-heading">
-
-                <span>
-                    رحلتك التعليمية
-                </span>
-
-                <h2>
-                    إنجازاتك
-                </h2>
-
-            </div>
-
-
-            <div class="achievement-grid">
-
-
-                <div class="achievement">
-
-                    <span class="achievement-number">
-                        ٤
-                    </span>
-
-                    <div>
-
-                        <strong>
-                            كورسات
-                        </strong>
-
-                        <small>
-                            مشتركة بها
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="achievement">
-
-                    <span class="achievement-number">
-                        ٢٨
-                    </span>
-
-                    <div>
-
-                        <strong>
-                            درس
-                        </strong>
-
-                        <small>
-                            مكتمل
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="achievement">
-
-                    <span class="achievement-number">
-                        ٨
-                    </span>
-
-                    <div>
-
-                        <strong>
-                            اختبار
-                        </strong>
-
-                        <small>
-                            تم إنجازه
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-
-                <div class="achievement gold-achievement">
-
-                    <span class="achievement-number">
-                        ٧٥٪
-                    </span>
-
-                    <div>
-
-                        <strong>
-                            تقدم
-                        </strong>
-
-                        <small>
-                            في رحلتك
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-
-
-        <!-- MESSAGE -->
-
-        <div class="motivation">
-
-            <span>
-                <i class="fa-solid fa-star"></i>
-            </span>
-
-            <p>
-                كل خطوة تتعلميها اليوم تقربك أكثر من النجاح الذي تستحقينه.
-            </p>
 
         </div>
-
-
     </main>
 
-
-    <!-- JavaScript -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script src="script.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pages/profile.js"></script>
 </body>
-
 </html>

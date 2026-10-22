@@ -1,425 +1,90 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>الإعدادات | منصة إتقان</title>
-
-    <script src="https://kit.fontawesome.com/4d0f4f7352.js"
-            crossorigin="anonymous"></script>
-
-    <link rel="stylesheet" href="settings.css">
-
+    <title>منصة إتقان</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%23f4b860'/><text x='50' y='70' font-family='Arial' font-size='58' font-weight='800' fill='%2318212f' text-anchor='middle'>إ</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/boot.js"></script>
 </head>
-
-
 <body>
+    <aside class="sidebar" id="sidebar"></aside>
 
-<main class="settings-wrapper">
+    <main class="main">
+        <header class="topbar" id="topbar"></header>
 
+        <div class="container stack">
 
-    <!-- HEADER -->
-
-    <header class="header">
-
-        <div class="brand">
-
-            <div class="logo"
-                 id="logoLetter"
-                 data-ar="إ"
-                 data-en="I">
-                إ
-            </div>
-
-            <div>
-
-                <strong data-ar="منصة إتقان"
-                        data-en="Itqan Platform">
-                    منصة إتقان
-                </strong>
-
-                <span data-ar="الإعدادات"
-                      data-en="Settings">
-                    الإعدادات
-                </span>
-
-            </div>
-
-        </div>
-
-        <div class="header-title"
-             data-ar="الإعدادات"
-             data-en="Settings">
-            الإعدادات
-        </div>
-
-    </header>
-
-
-
-    <!-- بيانات الطالب -->
-
-    <section class="student-card">
-
-        <div class="student-avatar" id="settingsAvatar">
-            أ
-        </div>
-
-        <div class="student-data">
-
-            <span class="student-label"
-                  data-ar="بيانات الحساب"
-                  data-en="Account Information">
-                بيانات الحساب
-            </span>
-
-            <h2 id="settingsStudentName">
-                أماني
-            </h2>
-
-            <p>
-
-                <span data-ar="البريد الإلكتروني:"
-                      data-en="Email:">
-                    البريد الإلكتروني:
-                </span>
-
-                <strong id="settingsStudentEmail">
-                    -
-                </strong>
-
-            </p>
-
-            <p>
-
-                <span data-ar="الصف الدراسي:"
-                      data-en="Grade:">
-                    الصف الدراسي:
-                </span>
-
-                <strong id="settingsStudentGrade">
-                    -
-                </strong>
-
-            </p>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <div>
-
-            <span data-ar="تخصيص تجربتك"
-                  data-en="Customize your experience">
-                تخصيص تجربتك
-            </span>
-
-            <h1 data-ar="إعداداتك"
-                data-en="Your Settings">
-                إعداداتك
-            </h1>
-
-            <p data-ar="اختاري الإعدادات التي تناسب طريقة دراستك."
-               data-en="Choose the settings that fit your study style.">
-                اختاري الإعدادات التي تناسب طريقة دراستك.
-            </p>
-
-        </div>
-
-        <div class="hero-icon">
-            <i class="fa-solid fa-gear"></i>
-        </div>
-
-    </section>
-
-
-
-    <!-- SETTINGS -->
-
-    <section class="settings-grid">
-
-
-        <!-- LANGUAGE -->
-
-        <div class="card">
-
-            <div class="card-title">
-
-                <div class="icon">
-                    <i class="fa-solid fa-globe"></i>
+            <section class="card">
+                <div class="card-head">
+                    <div>
+                        <span class="eyebrow" data-i18n="settingsEyebrow"></span>
+                        <h2 data-i18n="settingsTitle"></h2>
+                    </div>
                 </div>
 
-                <div>
-
-                    <h2 data-ar="لغة المنصة"
-                        data-en="Platform Language">
-                        لغة المنصة
-                    </h2>
-
-                    <p data-ar="اختاري لغة واجهة المنصة"
-                       data-en="Choose your interface language">
-                        اختاري لغة واجهة المنصة
-                    </p>
-
+                <div class="setting">
+                    <div class="setting-info">
+                        <span class="tile blue"><i class="fa-solid fa-language"></i></span>
+                        <div><strong data-i18n="languageSetting"></strong><span data-i18n="languageText"></span></div>
+                    </div>
+                    <div class="segmented" id="languageChoice">
+                        <button type="button" data-value="ar">العربية</button>
+                        <button type="button" data-value="en">English</button>
+                    </div>
                 </div>
 
-            </div>
-
-
-            <select id="language">
-
-                <option value="ar">
-                    العربية
-                </option>
-
-                <option value="en">
-                    English
-                </option>
-
-            </select>
-
-        </div>
-
-
-
-        <!-- THEME -->
-
-        <div class="card">
-
-            <div class="card-title">
-
-                <div class="icon gold">
-                    <i class="fa-solid fa-palette"></i>
+                <div class="setting">
+                    <div class="setting-info">
+                        <span class="tile purple"><i class="fa-solid fa-circle-half-stroke"></i></span>
+                        <div><strong data-i18n="themeSetting"></strong><span data-i18n="themeText"></span></div>
+                    </div>
+                    <div class="segmented" id="themeChoice">
+                        <button type="button" data-value="light"><i class="fa-solid fa-sun"></i><span data-i18n="light"></span></button>
+                        <button type="button" data-value="dark"><i class="fa-solid fa-moon"></i><span data-i18n="dark"></span></button>
+                    </div>
                 </div>
 
-                <div>
-
-                    <h2 data-ar="مظهر المنصة"
-                        data-en="Platform Theme">
-                        مظهر المنصة
-                    </h2>
-
-                    <p data-ar="اختاري شكل المنصة"
-                       data-en="Choose the platform appearance">
-                        اختاري شكل المنصة
-                    </p>
-
+                <div class="setting">
+                    <div class="setting-info">
+                        <span class="tile gold"><i class="fa-solid fa-bell"></i></span>
+                        <div><strong data-i18n="notificationsSetting"></strong><span data-i18n="notificationsText"></span></div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="notifications" data-i18n-label="notificationsSetting">
+                        <span></span>
+                    </label>
                 </div>
 
-            </div>
+                <div class="setting">
+                    <div class="setting-info">
+                        <span class="tile green"><i class="fa-solid fa-clock"></i></span>
+                        <div><strong data-i18n="reminderSetting"></strong><span data-i18n="reminderText"></span></div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" id="reminder" data-i18n-label="reminderSetting">
+                        <span></span>
+                    </label>
+                </div>
+            </section>
 
-
-            <div class="theme-buttons">
-
-                <button class="theme active"
-                        data-theme="light">
-
-                    <i class="fa-solid fa-sun"></i>
-
-                    <span data-ar="فاتح"
-                          data-en="Light">
-                        فاتح
-                    </span>
-
-                </button>
-
-
-                <button class="theme"
-                        data-theme="dark">
-
-                    <i class="fa-solid fa-moon"></i>
-
-                    <span data-ar="داكن"
-                          data-en="Dark">
-                        داكن
-                    </span>
-
-                </button>
-
+            <div class="actions">
+                <button type="button" class="btn btn-primary" id="saveBtn"><i class="fa-solid fa-floppy-disk"></i><span data-i18n="save"></span></button>
+                <button type="button" class="btn btn-outline" id="resetBtn"><i class="fa-solid fa-rotate-left"></i><span data-i18n="resetSettings"></span></button>
             </div>
 
         </div>
-
-
-
-        <!-- NOTIFICATIONS -->
-
-        <div class="card">
-
-            <div class="card-title">
-
-                <div class="icon blue">
-                    <i class="fa-solid fa-bell"></i>
-                </div>
-
-                <div>
-
-                    <h2 data-ar="الإشعارات"
-                        data-en="Notifications">
-                        الإشعارات
-                    </h2>
-
-                    <p data-ar="تنبيهات الدروس والاختبارات"
-                       data-en="Lessons and exam notifications">
-                        تنبيهات الدروس والاختبارات
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="toggle-row">
-
-                <span data-ar="تفعيل الإشعارات"
-                      data-en="Enable notifications">
-                    تفعيل الإشعارات
-                </span>
-
-
-                <label class="switch">
-
-                    <input type="checkbox"
-                           id="notifications"
-                           checked>
-
-                    <span class="slider"></span>
-
-                </label>
-
-            </div>
-
-        </div>
-
-
-
-        <!-- STUDY REMINDER -->
-
-        <div class="card">
-
-            <div class="card-title">
-
-                <div class="icon green">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-
-                <div>
-
-                    <h2 data-ar="تذكير الدراسة"
-                        data-en="Study Reminder">
-                        تذكير الدراسة
-                    </h2>
-
-                    <p data-ar="تذكيرك بمتابعة دروسك"
-                       data-en="Remind you to study">
-                        تذكيرك بمتابعة دروسك
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="toggle-row">
-
-                <span data-ar="تفعيل التذكير"
-                      data-en="Enable reminder">
-                    تفعيل التذكير
-                </span>
-
-
-                <label class="switch">
-
-                    <input type="checkbox"
-                           id="reminder"
-                           checked>
-
-                    <span class="slider"></span>
-
-                </label>
-
-            </div>
-
-        </div>
-
-
-    </section>
-
-
-
-    <!-- ACTIONS -->
-
-    <section class="actions">
-
-        <button id="saveBtn"
-                class="save">
-
-            <i class="fa-solid fa-floppy-disk"></i>
-
-            <span data-ar="حفظ التغييرات"
-                  data-en="Save Changes">
-                حفظ التغييرات
-            </span>
-
-        </button>
-
-
-        <button id="resetBtn"
-                class="reset">
-
-            <i class="fa-solid fa-rotate-left"></i>
-
-            <span data-ar="استعادة الإعدادات"
-                  data-en="Reset Settings">
-                استعادة الإعدادات
-            </span>
-
-        </button>
-
-    </section>
-
-
-
-    <!-- MESSAGE -->
-
-    <div id="message"
-         class="message">
-
-        <i class="fa-solid fa-circle-check"></i>
-
-        <span data-ar="تم حفظ الإعدادات بنجاح"
-              data-en="Settings saved successfully">
-            تم حفظ الإعدادات بنجاح
-        </span>
-
-    </div>
-
-
-</main>
-
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-<script src="script.js"></script>
-
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pages/settings.js"></script>
 </body>
-
 </html>

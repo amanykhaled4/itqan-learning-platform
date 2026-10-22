@@ -1,635 +1,82 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>منصة إتقان | تقدمي</title>
-
-    <script src="https://kit.fontawesome.com/4d0f4f7352.js"
-            crossorigin="anonymous"></script>
-
+    <title>منصة إتقان</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='28' fill='%23f4b860'/><text x='50' y='70' font-family='Arial' font-size='58' font-weight='800' fill='%2318212f' text-anchor='middle'>إ</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <link rel="stylesheet" href="progress.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <script src="js/boot.js"></script>
 </head>
-
 <body>
+    <aside class="sidebar" id="sidebar"></aside>
 
-<div class="dashboard">
+    <main class="main">
+        <header class="topbar" id="topbar"></header>
 
+        <div class="container stack">
 
-    <!-- =========================
-         SIDEBAR
-    ========================== -->
+            <div class="layout-main-side equal">
 
-    <aside class="sidebar">
+                <!-- Overall progress -->
+                <section class="card card-inline overview" id="overview">
+                    <div class="skeleton row fill"></div>
+                </section>
 
-        <div class="brand">
+                <!-- Next goal -->
+                <section class="card" id="goal">
+                    <div class="skeleton row"></div>
+                </section>
 
-            <div class="brand-icon">
-                إ
             </div>
 
-            <div>
-                <h2>منصة إتقان</h2>
-                <span>رحلتك نحو التميز</span>
-            </div>
+            <section class="grid grid-4" id="stats">
+                <div class="skeleton row"></div>
+                <div class="skeleton row"></div>
+                <div class="skeleton row"></div>
+                <div class="skeleton row"></div>
+            </section>
 
-        </div>
+            <div class="layout-main-side">
 
+                <section class="card">
+                    <div class="card-head">
+                        <div>
+                            <span class="eyebrow" data-i18n="progressEyebrow"></span>
+                            <h2 data-i18n="subjectsProgress"></h2>
+                        </div>
+                    </div>
+                    <div class="list" id="subjects">
+                        <div class="skeleton row"></div>
+                        <div class="skeleton row"></div>
+                    </div>
+                </section>
 
-        <div class="menu-title">
-            القائمة الرئيسية
-        </div>
-
-
-        <nav>
-
-            <a href="dashboard.html" class="menu-item">
-
-                <i class="fa-solid fa-house"></i>
-
-                الرئيسية
-
-            </a>
-
-
-<a href="exams.html" class="menu-item">
-                <i class="fa-solid fa-clipboard-check"></i>
-
-                الاختبارات
-
-            </a>
-
-
-<a href="progress.html" class="menu-item active">
-                <i class="fa-solid fa-chart-line"></i>
-
-                تقدمي
-
-            </a>
-
-
-            <div class="menu-title account-title">
-                حسابي
-            </div>
-
-
-            <a href="profile.html" class="menu-item">
-
-                <i class="fa-solid fa-user"></i>
-
-                الملف الشخصي
-
-            </a>
-
-
-            <a href="settings.html" class="menu-item">
-
-                <i class="fa-solid fa-gear"></i>
-
-                الإعدادات
-
-            </a>
-
-
-            <a href="#" class="menu-item logout-item" id="logoutBtn">
-
-                <i class="fa-solid fa-right-from-bracket"></i>
-
-                تسجيل الخروج
-
-            </a>
-
-        </nav>
-
-
-        <div class="sidebar-bottom">
-
-            <div class="help-box">
-
-                <div class="help-icon">
-
-                    <i class="fa-solid fa-circle-question"></i>
-
-                </div>
-
-                <div>
-
-                    <strong>تحتاجين مساعدة؟</strong>
-
-                    <span>نحن هنا لمساعدتك</span>
-
-                </div>
+                <section class="card">
+                    <div class="card-head">
+                        <div>
+                            <span class="eyebrow" data-i18n="progressTitle"></span>
+                            <h2 data-i18n="recentActivity"></h2>
+                        </div>
+                    </div>
+                    <div class="list timeline" id="activity">
+                        <div class="skeleton row"></div>
+                    </div>
+                </section>
 
             </div>
 
         </div>
-
-    </aside>
-
-
-
-    <!-- =========================
-         TOP HEADER
-    ========================== -->
-
-    <header class="progress-header">
-
-        <div class="header-text">
-
-            <span class="small-title">
-                رحلتك التعليمية
-            </span>
-
-            <h1>
-                تقدّمك الدراسي
-            </h1>
-
-            <p>
-                استمري في التقدم، كل خطوة تقربينك أكثر من هدفك.
-            </p>
-
-        </div>
-
-    </header>
-
-
-
-    <!-- =========================
-         MAIN OVERVIEW
-    ========================== -->
-
-    <section class="overview">
-
-
-        <!-- دائرة الإنجاز -->
-
-        <div class="achievement-card">
-
-            <div class="circle-progress">
-
-                <div class="circle-inner">
-
-                    <strong>
-                        72%
-                    </strong>
-
-                    <span>
-                        الإنجاز الكلي
-                    </span>
-
-                </div>
-
-            </div>
-
-            <div class="achievement-text">
-
-                <h2>
-                    أداء رائع! ⭐
-                </h2>
-
-                <p>
-                    أنتِ تسيرين بشكل ممتاز في رحلتك التعليمية.
-                    استمري بنفس الحماس لتحققي المزيد.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <!-- الإحصائيات -->
-
-        <div class="statistics">
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon blue">
-                    <i class="fa-solid fa-book-open"></i>
-                </div>
-
-                <div>
-
-                    <span>
-                        الدروس المكتملة
-                    </span>
-
-                    <strong>
-                        12
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon gold">
-                    <i class="fa-solid fa-clipboard-check"></i>
-                </div>
-
-                <div>
-
-                    <span>
-                        الاختبارات
-                    </span>
-
-                    <strong>
-                        8
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon green">
-                    <i class="fa-solid fa-star"></i>
-                </div>
-
-                <div>
-
-                    <span>
-                        متوسط الأداء
-                    </span>
-
-                    <strong>
-                        87%
-                    </strong>
-
-                </div>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-icon purple">
-                    <i class="fa-solid fa-trophy"></i>
-                </div>
-
-                <div>
-
-                    <span>
-                        الإنجازات
-                    </span>
-
-                    <strong>
-                        5
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         SUBJECT PROGRESS
-    ========================== -->
-
-    <section class="content-card">
-
-        <div class="section-heading">
-
-            <div>
-
-                <span>
-                    المواد الدراسية
-                </span>
-
-                <h2>
-                    مستوى تقدمك
-                </h2>
-
-            </div>
-
-            <i class="fa-solid fa-chart-line"></i>
-
-        </div>
-
-
-        <div class="subjects-progress">
-
-
-            <!-- الرياضيات -->
-
-            <div class="subject-row">
-
-                <div class="subject-icon math">
-                    <i class="fa-solid fa-calculator"></i>
-                </div>
-
-                <div class="subject-details">
-
-                    <div class="subject-name">
-
-                        <strong>
-                            الرياضيات
-                        </strong>
-
-                        <span>
-                            85%
-                        </span>
-
-                    </div>
-
-                    <div class="progress-track">
-
-                        <div class="progress-value math-value"></div>
-
-                    </div>
-
-                    <small>
-                        أداء ممتاز، استمري!
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <!-- الفيزياء -->
-
-            <div class="subject-row">
-
-                <div class="subject-icon physics">
-                    <i class="fa-solid fa-bolt"></i>
-                </div>
-
-                <div class="subject-details">
-
-                    <div class="subject-name">
-
-                        <strong>
-                            الفيزياء
-                        </strong>
-
-                        <span>
-                            70%
-                        </span>
-
-                    </div>
-
-                    <div class="progress-track">
-
-                        <div class="progress-value physics-value"></div>
-
-                    </div>
-
-                    <small>
-                        تقدّم جيد جدًا
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <!-- الكيمياء -->
-
-            <div class="subject-row">
-
-                <div class="subject-icon chemistry">
-                    <i class="fa-solid fa-flask"></i>
-                </div>
-
-                <div class="subject-details">
-
-                    <div class="subject-name">
-
-                        <strong>
-                            الكيمياء
-                        </strong>
-
-                        <span>
-                            65%
-                        </span>
-
-                    </div>
-
-                    <div class="progress-track">
-
-                        <div class="progress-value chemistry-value"></div>
-
-                    </div>
-
-                    <small>
-                        لديكِ مجال رائع للتقدم
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <!-- العربي -->
-
-            <div class="subject-row">
-
-                <div class="subject-icon arabic">
-                    <i class="fa-solid fa-language"></i>
-                </div>
-
-                <div class="subject-details">
-
-                    <div class="subject-name">
-
-                        <strong>
-                            اللغة العربية
-                        </strong>
-
-                        <span>
-                            78%
-                        </span>
-
-                    </div>
-
-                    <div class="progress-track">
-
-                        <div class="progress-value arabic-value"></div>
-
-                    </div>
-
-                    <small>
-                        أنتِ قريبة من إكمال المادة
-                    </small>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================
-         ACHIEVEMENTS
-    ========================== -->
-
-    <section class="bottom-grid">
-
-
-        <div class="content-card achievements-card">
-
-            <div class="section-heading">
-
-                <div>
-
-                    <span>
-                        إنجازاتك
-                    </span>
-
-                    <h2>
-                        آخر إنجازاتك
-                    </h2>
-
-                </div>
-
-                <i class="fa-solid fa-award"></i>
-
-            </div>
-
-
-            <div class="achievement-list">
-
-
-                <div class="achievement-item">
-
-                    <div class="achievement-icon gold">
-                        <i class="fa-solid fa-star"></i>
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            أكملتِ 5 دروس
-                        </strong>
-
-                        <span>
-                            إنجاز جديد في رحلتك التعليمية
-                        </span>
-
-                    </div>
-
-                    <small>
-                        اليوم
-                    </small>
-
-                </div>
-
-
-                <div class="achievement-item">
-
-                    <div class="achievement-icon blue">
-                        <i class="fa-solid fa-clipboard-check"></i>
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            اجتزتِ اختبار الرياضيات
-                        </strong>
-
-                        <span>
-                            حصلتِ على نتيجة رائعة
-                        </span>
-
-                    </div>
-
-                    <small>
-                        أمس
-                    </small>
-
-                </div>
-
-
-                <div class="achievement-item">
-
-                    <div class="achievement-icon green">
-                        <i class="fa-solid fa-fire"></i>
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            استمريتِ في التعلم
-                        </strong>
-
-                        <span>
-                            7 أيام متتالية من النشاط
-                        </span>
-
-                    </div>
-
-                    <small>
-                        منذ يومين
-                    </small>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- هدفك القادم -->
-
-        <div class="goal-card">
-
-            <div class="goal-icon">
-                <i class="fa-solid fa-bullseye"></i>
-            </div>
-
-            <span>
-                هدفك القادم
-            </span>
-
-            <h2>
-                الوصول إلى 80%
-            </h2>
-
-            <p>
-                لم يتبقَ سوى 8% للوصول إلى هدفك الحالي.
-            </p>
-
-            <div class="goal-bar">
-
-                <div></div>
-
-            </div>
-
-            <strong>
-                72% من 80%
-            </strong>
-
-        </div>
-
-    </section>
-
-</div>
-
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.14.5/dist/sweetalert2.all.min.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/pages/progress.js"></script>
 </body>
-
 </html>
