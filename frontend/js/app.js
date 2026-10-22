@@ -55,7 +55,7 @@ const App = (() => {
 
     const alertBase = () => ({
         customClass: { popup: "itqan-alert" },
-        confirmButtonColor: document.documentElement.dataset.theme === "dark" ? "#c38a3a" : "#18212f",
+        confirmButtonColor: document.documentElement.dataset.theme === "dark" ? "#9b7bff" : "#7c4dff",
         cancelButtonColor: "#9aa2ad",
         confirmButtonText: I18n.t("ok"),
         cancelButtonText: I18n.t("cancel"),

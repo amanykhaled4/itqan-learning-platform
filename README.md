@@ -21,6 +21,7 @@ Built with **ASP.NET Core 10** (REST API, JWT, EF Core + SQLite) and a **vanilla
 
 **Interface**
 - Arabic (RTL) and English (LTR), switched instantly and saved to the account
+- Playful, colourful design: violet-to-pink gradients, a colour per subject, rounded shapes and bouncy micro-animations
 - Light and dark themes
 - Responsive layout: sidebar on desktop, slide-in drawer on phones
 - One shared design system (`css/app.css`) used by every page
