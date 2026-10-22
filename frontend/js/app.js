@@ -55,7 +55,7 @@ const App = (() => {
 
     const alertBase = () => ({
         customClass: { popup: "itqan-alert" },
-        confirmButtonColor: document.documentElement.dataset.theme === "dark" ? "#9b7bff" : "#7c4dff",
+        confirmButtonColor: document.documentElement.dataset.theme === "dark" ? "#3d9df3" : "#3d9df3",
         cancelButtonColor: "#9aa2ad",
         confirmButtonText: I18n.t("ok"),
         cancelButtonText: I18n.t("cancel"),
@@ -102,7 +102,7 @@ const App = (() => {
 
         sidebar.innerHTML = `
             <a href="dashboard.html" class="brand">
-                <span class="brand-icon">${I18n.lang === "en" ? "I" : "إ"}</span>
+                <span class="brand-icon"><i class="fa-solid fa-graduation-cap"></i></span>
                 <span><strong>${I18n.t("brandName")}</strong><small>${I18n.t("brandTagline")}</small></span>
             </a>
             <nav>

@@ -21,7 +21,8 @@ Built with **ASP.NET Core 10** (REST API, JWT, EF Core + SQLite) and a **vanilla
 
 **Interface**
 - Arabic (RTL) and English (LTR), switched instantly and saved to the account
-- Playful, colourful design: violet-to-pink gradients, a colour per subject, rounded shapes and bouncy micro-animations
+- Calm baby-blue and white design with a soft pastel colour per subject
+- Each page has one job: **Home** is what to study now (next lesson, subjects, exam of the day, a daily study tip), **Progress** holds the numbers (subject report with best exam score per subject, milestones, activity log), **Profile** is account details only
 - Light and dark themes
 - Responsive layout: sidebar on desktop, slide-in drawer on phones
 - One shared design system (`css/app.css`) used by every page

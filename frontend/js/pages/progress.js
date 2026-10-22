@@ -2,11 +2,11 @@
     await App.init({ page: "progress", title: "pageProgress" });
 
     try {
-        const progress = await Api.get("/progress");
+        const [progress, exams] = await Promise.all([Api.get("/progress"), Api.get("/exams")]);
         renderOverview(progress);
         renderGoal(progress);
         renderStats(progress);
-        renderSubjects(progress.subjects);
+        renderReport(progress.subjects, exams);
         renderActivity(progress.recentActivity);
     } catch (err) {
         App.error(err);
@@ -67,17 +67,39 @@ function renderStats(progress) {
         stat("fa-fire", "red", progress.streakDays, "statStreak");
 }
 
-function renderSubjects(subjects) {
-    document.getElementById("subjects").innerHTML = subjects.map((subject) => `
-        <a href="course.html?subject=${subject.slug}" class="row">
-            <span class="tile ${subject.slug}"><i class="fa-solid ${subject.icon}"></i></span>
-            <div class="row-body">
-                <strong>${App.escape(subject.name)}</strong>
-                <small>${I18n.t("lessonsDone", subject.completedLessons, subject.totalLessons)}</small>
-                <div class="progress"><span data-width="${subject.percent}"></span></div>
-            </div>
-            <span class="pill gold">${subject.percent}%</span>
-        </a>`).join("");
+// Subject report: lessons, completion and the best exam result for each subject
+function renderReport(subjects, exams) {
+    const best = (slug) => {
+        const scores = exams.filter((e) => e.subjectSlug === slug && e.bestPercent !== null).map((e) => e.bestPercent);
+        return scores.length ? Math.max(...scores) : null;
+    };
+
+    const head = `
+        <div class="report-row report-head">
+            <span>${I18n.t("reportSubject")}</span>
+            <span>${I18n.t("reportLessons")}</span>
+            <span>${I18n.t("reportCompletion")}</span>
+            <span>${I18n.t("reportBestExam")}</span>
+        </div>`;
+
+    document.getElementById("subjects").innerHTML = head + subjects.map((subject) => {
+        const score = best(subject.slug);
+        return `
+            <a href="course.html?subject=${subject.slug}" class="report-row">
+                <span class="report-subject">
+                    <span class="tile tile-sm ${subject.slug}"><i class="fa-solid ${subject.icon}"></i></span>
+                    <strong>${App.escape(subject.name)}</strong>
+                </span>
+                <span dir="ltr">${subject.completedLessons} / ${subject.totalLessons}</span>
+                <span class="report-bar">
+                    <span class="progress"><span data-width="${subject.percent}"></span></span>
+                    <small>${subject.percent}%</small>
+                </span>
+                <span>${score === null
+                    ? `<span class="pill">${I18n.t("reportNoExam")}</span>`
+                    : `<span class="pill ${score >= 80 ? "green" : score >= 50 ? "gold" : "red"}">${score}%</span>`}</span>
+            </a>`;
+    }).join("");
 
     animateBars();
 }

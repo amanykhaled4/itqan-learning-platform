@@ -3,12 +3,6 @@
 
     renderHead(student);
     fillForm(student);
-
-    try {
-        renderStats(await Api.get("/progress"));
-    } catch (err) {
-        App.error(err);
-    }
 })();
 
 function renderHead(student) {
@@ -29,20 +23,6 @@ function fillForm(student) {
     const grade = document.getElementById("grade");
     grade.querySelectorAll("option").forEach((option) => { option.textContent = I18n.grade(option.value); });
     grade.value = student.grade;
-}
-
-function renderStats(progress) {
-    const stat = (icon, color, value, key) => `
-        <div class="stat">
-            <span class="tile ${color}"><i class="fa-solid ${icon}"></i></span>
-            <div><b>${value}</b><span>${I18n.t(key)}</span></div>
-        </div>`;
-
-    document.getElementById("stats").innerHTML =
-        stat("fa-chart-pie", "gold", `${progress.overallPercent}%`, "statOverall") +
-        stat("fa-book-open", "blue", progress.completedLessons, "statLessons") +
-        stat("fa-clipboard-check", "green", progress.examsTaken, "statExams") +
-        stat("fa-fire", "red", progress.streakDays, "statStreak");
 }
 
 function showError(id, message) {
