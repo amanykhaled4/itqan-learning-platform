@@ -1,0 +1,842 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: "Cairo", sans-serif;
+    color: #18212f;
+
+    background:
+        radial-gradient(
+            circle at 10% 15%,
+            rgba(244, 184, 96, 0.13),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(70, 100, 150, 0.18),
+            transparent 32%
+        ),
+        #202936;
+
+    overflow: hidden;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.page {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    padding: 10px;
+
+    overflow: hidden;
+    isolation: isolate;
+}
+
+
+/* =========================================
+   BACKGROUND CIRCLES
+========================================= */
+
+.page::before {
+    content: "";
+
+    position: absolute;
+
+    width: 600px;
+    height: 600px;
+
+    top: -330px;
+    left: -250px;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 50%;
+
+    animation: rotateCircle 20s linear infinite;
+
+    z-index: -1;
+}
+
+.page::after {
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+    height: 450px;
+
+    right: -230px;
+    bottom: -250px;
+
+    border-radius: 50%;
+
+    background: rgba(244, 184, 96, 0.06);
+
+    animation: floatCircle 7s ease-in-out infinite;
+
+    z-index: -1;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.welcome-section {
+    position: absolute;
+
+    top: 18px;
+    right: 30px;
+
+    z-index: 20;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 15px;
+
+    background: #18212f;
+
+    color: #f4b860;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.25);
+
+    animation: logoPulse 3s ease-in-out infinite;
+
+    transition: 0.3s;
+}
+
+.logo-icon:hover {
+    transform: rotate(-6deg) scale(1.05);
+}
+
+.logo h2 {
+    color: white;
+
+    font-size: 18px;
+    font-weight: 800;
+}
+
+.logo span {
+    display: block;
+
+    margin-top: 1px;
+
+    color: #aeb7c5;
+
+    font-size: 9px;
+}
+
+
+/* نخفي المحتوى التعريفي */
+
+.welcome-content,
+.bottom-text {
+    display: none;
+}
+
+
+/* =========================================
+   REGISTER SECTION
+========================================= */
+
+.login-section {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   DECORATION - STAR
+========================================= */
+
+.login-section::before {
+    content: "✦";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    left: 13%;
+    top: 22%;
+
+    border-radius: 21px;
+
+    background: white;
+
+    color: #f4b860;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.18);
+
+    transform: rotate(-10deg);
+
+    animation: floatStar 4s ease-in-out infinite;
+}
+
+
+/* =========================================
+   DECORATION - GRADUATION
+========================================= */
+
+.login-section::after {
+    content: "🎓";
+
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    right: 12%;
+    bottom: 18%;
+
+    border-radius: 50%;
+
+    background: #18212f;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, 0.25);
+
+    animation: floatHat 5s ease-in-out infinite;
+}
+
+
+/* =========================================
+   REGISTER CARD
+========================================= */
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    padding: 17px 27px;
+
+    border-radius: 24px;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.30);
+
+    position: relative;
+
+    z-index: 10;
+
+    /*
+       مهم:
+       الكارت كله يدخل داخل الشاشة
+    */
+
+    max-height: calc(100vh - 70px);
+
+    animation: cardAppear 0.8s ease;
+}
+
+
+/* =========================================
+   GOLD LINE
+========================================= */
+
+.login-card::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    right: 30px;
+    left: 30px;
+
+    height: 4px;
+
+    border-radius: 0 0 10px 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #f4b860,
+            #ffd98d
+        );
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.login-header {
+    text-align: center;
+
+    margin-bottom: 9px;
+}
+
+.user-icon {
+    width: 44px;
+    height: 44px;
+
+    margin: 0 auto 4px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff4df,
+            #f9e2ba
+        );
+
+    color: #d39435;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 8px 20px rgba(244, 184, 96, 0.15);
+
+    animation: iconFloat 3s ease-in-out infinite;
+}
+
+.login-header h1 {
+    font-size: 21px;
+
+    font-weight: 800;
+
+    color: #18212f;
+
+    margin-bottom: 1px;
+}
+
+.login-header p {
+    font-size: 10px;
+
+    color: #8993a2;
+}
+
+
+/* =========================================
+   INPUT GROUP
+========================================= */
+
+.input-group {
+    margin-bottom: 6px;
+}
+
+.input-group > label {
+    display: block;
+
+    margin-bottom: 3px;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #344054;
+}
+
+
+/* =========================================
+   INPUT BOX
+========================================= */
+
+.input-box {
+    width: 100%;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 0 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e1e6ed;
+
+    border-radius: 11px;
+
+    transition: 0.25s;
+}
+
+.input-box:hover {
+    border-color: #cbd3dd;
+
+    transform: translateY(-1px);
+}
+
+.input-box:focus-within {
+    background: white;
+
+    border-color: #18212f;
+
+    box-shadow:
+        0 0 0 4px rgba(24, 33, 47, 0.06);
+}
+
+.input-box > span {
+    font-size: 15px;
+
+    color: #8993a2;
+}
+
+.input-box input,
+.input-box select {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 11px;
+
+    color: #18212f;
+}
+
+.input-box input::placeholder {
+    color: #a5adb8;
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
+.input-box select {
+    cursor: pointer;
+
+    appearance: none;
+}
+
+.input-box select:invalid {
+    color: #a5adb8;
+}
+
+
+/* =========================================
+   TERMS
+========================================= */
+
+.remember {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin: 6px 0 9px;
+
+    color: #7b8492;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+.remember input {
+    width: 14px;
+    height: 14px;
+
+    accent-color: #18212f;
+}
+
+
+/* =========================================
+   REGISTER BUTTON
+========================================= */
+
+.register-button {
+    width: 100%;
+    height: 43px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #18212f;
+
+    color: white;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 10px 22px rgba(24, 33, 47, 0.22);
+}
+
+.register-button span {
+    display: inline-block;
+
+    margin-right: 7px;
+
+    transition: 0.3s;
+}
+
+.register-button:hover {
+    background: #2c394b;
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 15px 28px rgba(24, 33, 47, 0.28);
+}
+
+.register-button:hover span {
+    transform: translateX(-5px);
+}
+
+
+/* =========================================
+   BUTTON SHINE
+========================================= */
+
+.register-button::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 70%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.18),
+            transparent
+        );
+
+    transform: skewX(-20deg);
+
+    transition: 0.6s;
+}
+
+.register-button:hover::before {
+    left: 130%;
+}
+
+
+/* =========================================
+   LOGIN LINK
+========================================= */
+
+.register-text {
+    text-align: center;
+
+    margin-top: 7px;
+
+    font-size: 10px;
+
+    color: #8993a2;
+}
+
+.register-text a {
+    color: #18212f;
+
+    text-decoration: none;
+
+    font-weight: 800;
+
+    margin-right: 4px;
+
+    transition: 0.2s;
+}
+
+.register-text a:hover {
+    color: #d39435;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(20px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+@keyframes rotateCircle {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes floatCircle {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+
+@keyframes floatStar {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-10deg);
+    }
+
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(-5deg);
+    }
+}
+
+
+@keyframes floatHat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(12px);
+    }
+}
+
+
+@keyframes iconFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+
+@keyframes logoPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    50% {
+        box-shadow:
+            0 8px 25px rgba(244, 184, 96, 0.25);
+    }
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 850px) {
+
+    .login-section::before,
+    .login-section::after {
+        display: none;
+    }
+
+    .login-card {
+        max-width: 410px;
+    }
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow-y: auto;
+    }
+
+    .page {
+        min-height: 100vh;
+
+        height: auto;
+
+        padding: 75px 15px 20px;
+    }
+
+    .welcome-section {
+        top: 15px;
+        right: 18px;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 18px;
+    }
+
+    .logo h2 {
+        font-size: 16px;
+    }
+
+    .logo span {
+        font-size: 8px;
+    }
+
+    .login-section {
+        height: auto;
+        min-height: 0;
+    }
+
+    .login-card {
+        max-width: 100%;
+
+        max-height: none;
+
+        padding: 20px 18px;
+
+        border-radius: 22px;
+    }
+
+    .login-card::before {
+        right: 22px;
+        left: 22px;
+    }
+
+    .login-section::before,
+    .login-section::after {
+        display: none;
+    }
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+
+    .page {
+        padding-top: 70px;
+    }
+
+    .login-card {
+        padding: 18px 15px;
+    }
+
+    .input-box {
+        height: 38px;
+    }
+
+    .register-button {
+        height: 41px;
+    }
+
+    .login-header h1 {
+        font-size: 20px;
+    }
+}

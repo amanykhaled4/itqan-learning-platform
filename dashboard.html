@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>منصة إتقان | لوحة الطالب</title>
+<script src="https://kit.fontawesome.com/4d0f4f7352.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="dashboard.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- =========================
+         القائمة الجانبية - اليمين
+    ========================== -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                إ
+            </div>
+
+            <div>
+                <h2>منصة إتقان</h2>
+                <span>رحلتك نحو التميز</span>
+            </div>
+
+        </div>
+
+
+        <div class="menu-title">
+            القائمة الرئيسية
+        </div>
+
+<nav>
+
+    <a href="#" class="menu-item active">
+<i class="fa-solid fa-house"></i>
+        الرئيسية
+    </a>
+
+    <a href="exams.html" class="menu-item">
+        <i class="fa-solid fa-clipboard-check"></i>
+        الاختبارات
+    </a>
+
+<a href="progress.html" class="menu-item">
+            <i class="fa-solid fa-chart-line"></i>
+        تقدمي
+    </a>
+
+
+    <div class="menu-title account-title">
+        حسابي
+    </div>
+
+
+    <a href="profile.html" class="menu-item">
+        <i class="fa-solid fa-user"></i>
+        الملف الشخصي
+    </a>
+
+    <a href="SETTINGS PAGE.html" class="menu-item">
+        <i class="fa-solid fa-gear"></i>
+        الإعدادات
+    </a>
+
+    <a href="#" class="menu-item logout-item" id="logoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        تسجيل الخروج
+    </a>
+
+</nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="help-box">
+
+               <div class="help-icon">
+    <i class="fa-solid fa-circle-question"></i>
+</div>
+
+                <div>
+                    <strong>تحتاجين مساعدة؟</strong>
+                    <span>نحن هنا لمساعدتك</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================
+         المحتوى
+    ========================== -->
+
+    <main class="main">
+
+
+        <!-- =========================
+             الترحيب بالأعلى
+        ========================== -->
+
+        <header class="welcome-bar">
+
+    <div>
+
+        <span class="welcome-small">
+            أهلاً بعودتك
+            <i class="fa-solid fa-star"></i>
+        </span>
+
+        <h1 id="studentWelcome"></h1>
+
+    </div>
+
+
+    <div class="welcome-actions">
+
+        <!-- الإشعارات -->
+
+        <button class="notification-button" id="notificationBtn">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span class="notification-count">
+                3
+            </span>
+
+        </button>
+<a href="profile.html" class="profile-button">
+    <div class="profile-avatar">
+        <i class="fa-solid fa-user"></i>
+    </div>
+</a>
+
+        <!-- رسالة الترحيب -->
+
+        <div class="welcome-message">
+
+            <span>
+                مستعدة نكمل رحلتك التعليمية؟
+            </span>
+
+            <div class="welcome-dot"></div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<!-- =========================
+     صندوق الإشعارات
+========================== -->
+
+<div class="notification-panel" id="notificationPanel">
+
+    <div class="notification-header">
+
+        <div>
+            <span>مركز التنبيهات</span>
+            <h3>الإشعارات</h3>
+        </div>
+
+        <button id="closeNotifications">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+
+    <div class="notification-list">
+
+        <!-- إشعار 1 -->
+
+        <div class="notification-item unread">
+
+            <div class="notification-icon blue">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <div class="notification-content">
+
+                <strong>
+                    درس جديد متاح
+                </strong>
+
+                <p>
+                    تمت إضافة درس جديد في الرياضيات.
+                </p>
+
+                <small>
+                    منذ 5 دقائق
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- إشعار 2 -->
+
+        <div class="notification-item unread">
+
+            <div class="notification-icon gold">
+                <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+
+            <div class="notification-content">
+
+                <strong>
+                    اختبار جديد
+                </strong>
+
+                <p>
+                    لديك اختبار جديد جاهز للحل.
+                </p>
+
+                <small>
+                    منذ ساعة
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- إشعار 3 -->
+
+        <div class="notification-item">
+
+            <div class="notification-icon green">
+                <i class="fa-solid fa-star"></i>
+            </div>
+
+            <div class="notification-content">
+
+                <strong>
+                    أحسنتِ! ✦
+                </strong>
+
+                <p>
+                    أكملتِ درسًا جديدًا، استمري في التقدم.
+                </p>
+
+                <small>
+                    أمس
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button class="clear-notifications" id="clearNotifications">
+        تحديد الكل كمقروء
+    </button>
+
+</div>
+
+        <!-- =========================
+             المحتوى الرئيسي
+        ========================== -->
+
+        <section class="content-layout">
+
+
+            <!-- =========================
+                 الجزء الرئيسي
+            ========================== -->
+
+            <section class="hero">
+
+                <div class="hero-label">
+                        <i class="fa-solid fa-star"></i>
+
+                     رحلة جديدة تبدأ اليوم
+                </div>
+
+
+                <h2>
+                    استثمري في
+                    <span>مستقبلك</span>
+                </h2>
+
+
+                <p>
+                    كل خطوة صغيرة تقربينك من هدفك.
+                    تابعي دروسك، طوري مهاراتك،
+                    واصلي رحلتك نحو النجاح بثقة.
+                </p>
+
+
+                <div class="hero-decoration">
+
+                    <div class="deco-circle one"></div>
+                    <div class="deco-circle two"></div>
+
+                    <div class="deco-star">
+                            <i class="fa-solid fa-star"></i>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 المواد الدراسية - الشمال
+            ========================== -->
+
+            <section class="subjects-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <span>تعلمي وتقدمي</span>
+                        <h2>المواد الدراسية</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="subjects-list">
+
+
+                    <!-- رياضيات -->
+
+                    <a href="course.html?subject=math"
+                       class="subject-item">
+
+                        <div class="subject-icon math">
+                                <i class="fa-solid fa-calculator"></i>
+
+                        </div>
+
+                        <div class="subject-info">
+
+                            <strong>
+                                الرياضيات
+                            </strong>
+
+                            <span>
+                                دروس وتمارين
+                            </span>
+
+                        </div>
+
+                        <div class="subject-arrow">
+                                                            <i class="fa-solid fa-arrow-left"></i>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- فيزياء -->
+
+                    <a href="course.html?subject=physics"
+                       class="subject-item">
+
+                        <div class="subject-icon physics">
+                                <i class="fa-solid fa-bolt"></i>
+
+                        </div>
+
+                        <div class="subject-info">
+
+                            <strong>
+                                الفيزياء
+                            </strong>
+
+                            <span>
+                                شرح وتطبيقات
+                            </span>
+
+                        </div>
+
+                        <div class="subject-arrow">
+                                                            <i class="fa-solid fa-arrow-left"></i>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- كيمياء -->
+
+                    <a href="course.html?subject=chemistry"
+                       class="subject-item">
+
+                        <div class="subject-icon chemistry">
+                                <i class="fa-solid fa-flask"></i>
+
+                        </div>
+
+                        <div class="subject-info">
+
+                            <strong>
+                                الكيمياء
+                            </strong>
+
+                            <span>
+                                مفاهيم وتدريبات
+                            </span>
+
+                        </div>
+
+                        <div class="subject-arrow">
+                                                            <i class="fa-solid fa-arrow-left"></i>
+
+                        </div>
+
+                    </a>
+
+
+
+                    <!-- عربي -->
+
+                    <a href="course.html?subject=arabic"
+                       class="subject-item">
+
+                        <div class="subject-icon arabic">
+                                <i class="fa-solid fa-language"></i>
+
+                        </div>
+
+                        <div class="subject-info">
+
+                            <strong>
+                                اللغة العربية
+                            </strong>
+
+                            <span>
+                                نحو وبلاغة وأدب
+                            </span>
+
+                        </div>
+
+                        <div class="subject-arrow">
+                                <i class="fa-solid fa-arrow-left"></i>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =========================
+             رسالة أسفل الصفحة
+        ========================== -->
+
+        <section class="motivation">
+
+            <div class="motivation-icon">
+                    <i class="fa-solid fa-star"></i>
+
+            </div>
+
+            <div>
+
+                <strong>
+                    لا تتوقفي عن التقدم
+                </strong>
+
+                <p>
+                    النجاح ليس خطوة واحدة، بل مجموعة من الخطوات الصغيرة التي تستمرين في اتخاذها.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
