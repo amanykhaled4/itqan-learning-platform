@@ -1,5 +1,7 @@
 # Itqan — Online Learning Platform
 
+[![CI](https://github.com/amanykhaled4/itqan-learning-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/amanykhaled4/itqan-learning-platform/actions/workflows/ci.yml)
+
 A bilingual (Arabic / English) learning platform for secondary-school students: lessons organised by subject and unit, timed exams graded on the server, and a personal dashboard that tracks progress.
 
 Built with **ASP.NET Core 10** (REST API, JWT, EF Core + SQLite) and a **vanilla HTML / CSS / JavaScript** front end — no framework, no build step.
@@ -57,8 +59,8 @@ Built with **ASP.NET Core 10** (REST API, JWT, EF Core + SQLite) and a **vanilla
 Requirements: [.NET 10 SDK](https://dotnet.microsoft.com/download).
 
 ```bash
-git clone <this-repo-url>
-cd <repo-folder>
+git clone https://github.com/amanykhaled4/itqan-learning-platform.git
+cd itqan-learning-platform
 dotnet run --project backend
 ```
 
