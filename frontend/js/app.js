@@ -75,6 +75,20 @@ const App = (() => {
         return result.isConfirmed;
     }
 
+    // A titled list of questions and answers (help, terms of use)
+    function infoDialog(title, items) {
+        return Swal.fire({
+            ...alertBase(),
+            title,
+            width: 560,
+            html: `<dl class="info-list-dialog">${items.map(([q, a]) => `<dt>${escape(q)}</dt><dd>${escape(a)}</dd>`).join("")}</dl>`
+        });
+    }
+
+    function showHelp() {
+        return infoDialog(I18n.t("helpTitle"), I18n.t("faq"));
+    }
+
     function toast(title) {
         return Swal.fire({
             ...alertBase(),
@@ -112,13 +126,14 @@ const App = (() => {
                 </button>
             </nav>
             <div class="sidebar-footer">
-                <div class="help-box">
+                <button type="button" class="help-box" id="helpBtn">
                     <span class="help-icon"><i class="fa-solid fa-circle-question"></i></span>
                     <span><strong>${I18n.t("helpTitle")}</strong><span>${I18n.t("helpText")}</span></span>
-                </div>
+                </button>
             </div>`;
 
         document.getElementById("logoutBtn").addEventListener("click", logout);
+        document.getElementById("helpBtn").addEventListener("click", showHelp);
     }
 
     // ---------- Top bar ----------
@@ -308,6 +323,7 @@ const App = (() => {
         success,
         error,
         confirm,
+        infoDialog,
         toast,
         refreshNotifications: loadNotifications,
         get student() {

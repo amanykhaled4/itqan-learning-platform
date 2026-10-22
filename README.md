@@ -14,10 +14,10 @@ Built with **ASP.NET Core 10** (REST API, JWT, EF Core + SQLite) and a **vanilla
 - Timed multiple-choice exams with a progress bar and auto-submit when time runs out
 - Answers are graded **on the server** — the correct option is never sent to the browser before submission
 - Result screen with score and a per-question review of right and wrong answers
-- Dashboard built around "what's next": the next unfinished lesson, key numbers, progress per subject, recent activity and suggested exams (untried first, then the weakest scores)
-- Progress page: overall percentage, next milestone, per-subject progress, average score and day streak
+- Home built around "what's next": the next unfinished lesson, the subjects, an exam of the day (untried first, then the weakest score) and a daily study tip
+- Progress page: overall percentage, next milestone, key numbers, a subject report (lessons, completion, best exam score) and the activity log
 - Profile editing and password change
-- Notifications for completed lessons and exams
+- Notifications built from the student's real data, an FAQ in the sidebar and a terms-of-use dialog on sign-up
 
 **Interface**
 - Arabic (RTL) and English (LTR), switched instantly and saved to the account
@@ -62,9 +62,34 @@ cd <repo-folder>
 dotnet run --project backend
 ```
 
-Open **http://localhost:5111** — the API serves the front end too, so that one command runs the whole platform. The SQLite database is created and filled with subjects, lessons and exams on first run. Create an account from the register page.
+Open **http://localhost:5111** — the API serves the front end too, so that one command runs the whole platform. The SQLite database is created and filled with subjects, lessons and exams on first run.
+
+**Demo account** — press *Try the demo account* on the login page, or log in with:
+
+| Email | Password |
+|---|---|
+| `demo@itqan.app` | `demo1234` |
+
+It already has finished lessons and exam results, so every page has something to show. You can also create your own account from the register page.
 
 API documentation: **http://localhost:5111/swagger**
+
+## Tests
+
+```bash
+dotnet test Itqan.slnx
+```
+
+17 tests in `tests/ItqanApi.Tests`. Most are integration tests that start the real API in memory against a throwaway SQLite database (`WebApplicationFactory`) and check:
+
+- registration, login, duplicate emails, validation, and that a wrong password and an unknown email get the same answer
+- every protected endpoint rejects requests without a token
+- exam questions never reveal the correct option, grading happens on the server, and the best score is tracked
+- unavailable exams can't be submitted, and students only see their own results
+- completing a lesson twice counts once, and un-completing it updates progress
+- day-streak rules (unit tests)
+
+The same tests run on every push with GitHub Actions (`.github/workflows/ci.yml`).
 
 > Prefer VS Code Live Server for the front end? Open `frontend/` on port 5500; it will call the API on port 5111 automatically (CORS is already allowed in development).
 
@@ -85,6 +110,8 @@ frontend/
   js/i18n.js      Arabic / English dictionary
   js/app.js       Layout, sidebar, notifications, toasts, dialogs
   js/pages/       Page-specific scripts
+tests/
+  ItqanApi.Tests/ xUnit integration and unit tests
 ```
 
 ## API overview
@@ -126,4 +153,4 @@ Jwt__Key="a-long-random-secret"
 
 **إتقان** منصة تعليمية لطلاب المرحلة الثانوية: دروس مقسّمة إلى مواد ووحدات، واختبارات بوقت محدد تُصحَّح على السيرفر، ولوحة تحكم تتابع تقدّم الطالب. الواجهة تدعم العربية والإنجليزية والوضع الليلي وتعمل على الموبايل.
 
-للتشغيل: ثبّت ‎.NET 10 SDK ثم نفّذ `dotnet run --project backend` وافتح http://localhost:5111.
+للتشغيل: ثبّت ‎.NET 10 SDK ثم نفّذ `dotnet run --project backend` وافتح http://localhost:5111، واضغط «جرّب الحساب التجريبي» للدخول مباشرة.

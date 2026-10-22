@@ -55,14 +55,10 @@ function startSession({ token, student }) {
 
 // ---------- Login ----------
 
-loginForm?.addEventListener("submit", async (event) => {
-    event.preventDefault();
+// Public demo account created by the API's seed data (see README)
+const DEMO = { email: "demo@itqan.app", password: "demo1234" };
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
-
-    if (!email || !password) return showError(I18n.t("fillLogin"));
-
+async function logIn(email, password) {
     setBusy(true);
     try {
         startSession(await Api.post("/auth/login", { email, password }));
@@ -71,6 +67,27 @@ loginForm?.addEventListener("submit", async (event) => {
         showError(I18n.error(err));
         setBusy(false);
     }
+}
+
+loginForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+
+    if (!email || !password) return showError(I18n.t("fillLogin"));
+    logIn(email, password);
+});
+
+document.getElementById("demoBtn")?.addEventListener("click", () => {
+    document.getElementById("email").value = DEMO.email;
+    document.getElementById("password").value = DEMO.password;
+    logIn(DEMO.email, DEMO.password);
+});
+
+document.getElementById("termsLink")?.addEventListener("click", (event) => {
+    event.preventDefault();
+    App.infoDialog(I18n.t("termsTitle"), I18n.t("termsItems"));
 });
 
 // ---------- Register ----------

@@ -528,10 +528,18 @@ body.loading .main > *:not(.topbar) {
     display: flex;
     align-items: center;
     gap: var(--space-3);
+    width: 100%;
     padding: var(--space-3);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     background: var(--grad-sky);
+    text-align: start;
+    transition: border-color .2s ease, transform .2s ease;
+}
+
+.help-box:hover {
+    border-color: var(--sky);
+    transform: translateY(-2px);
 }
 
 .help-box .help-icon {
@@ -1952,6 +1960,23 @@ a.report-row:hover {
     gap: var(--space-4);
 }
 
+/* "or" between the login button and the demo button */
+.divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    color: var(--muted-2);
+    font-size: var(--fs-xs);
+}
+
+.divider::before,
+.divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
 .auth-switch {
     margin-top: var(--space-6);
     text-align: center;
@@ -2000,6 +2025,28 @@ a.report-row:hover {
 .swal2-popup.itqan-alert .swal2-html-container {
     color: var(--muted) !important;
     font-size: var(--fs-md) !important;
+}
+
+/* Questions and answers inside a dialog (help, terms) */
+.info-list-dialog {
+    text-align: start;
+}
+
+.info-list-dialog dt {
+    margin-top: var(--space-4);
+    color: var(--text);
+    font-weight: 600;
+}
+
+.info-list-dialog dt:first-child {
+    margin-top: 0;
+}
+
+.info-list-dialog dd {
+    margin-top: var(--space-1);
+    color: var(--muted);
+    font-size: var(--fs-sm);
+    line-height: 1.8;
 }
 
 .swal2-popup.itqan-alert .swal2-actions {

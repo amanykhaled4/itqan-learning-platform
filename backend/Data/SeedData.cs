@@ -1,15 +1,70 @@
 using ItqanApi.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ItqanApi.Data;
 
 // Fills an empty database with the subjects, lessons and exams shown on the platform
 public static class SeedData
 {
+    // Public demo account, shown on the login page and in the README
+    public const string DemoEmail = "demo@itqan.app";
+    public const string DemoPassword = "demo1234";
+
     public static void Seed(AppDbContext db)
     {
-        if (db.Subjects.Any()) return;
+        if (!db.Subjects.Any())
+        {
+            db.Subjects.AddRange(Math(), Physics(), Chemistry(), Arabic());
+            db.SaveChanges();
+        }
 
-        db.Subjects.AddRange(Math(), Physics(), Chemistry(), Arabic());
+        SeedDemoStudent(db);
+    }
+
+    // A student with some finished lessons and exam results, so the platform can be explored right away
+    private static void SeedDemoStudent(AppDbContext db)
+    {
+        if (db.Students.Any(s => s.Email == DemoEmail)) return;
+
+        var student = new Student { FullName = "Demo Student", Email = DemoEmail, Grade = "الأول الثانوي" };
+        student.PasswordHash = new PasswordHasher<Student>().HashPassword(student, DemoPassword);
+
+        // Lessons per subject, in course order: 5 math, 3 physics, 2 chemistry, 1 arabic
+        var plan = new Dictionary<string, int> { ["math"] = 5, ["physics"] = 3, ["chemistry"] = 2, ["arabic"] = 1 };
+        var lessonIds = db.Subjects
+            .Include(s => s.Units).ThenInclude(u => u.Lessons)
+            .AsEnumerable()
+            .SelectMany(s => s.Units.OrderBy(u => u.Order)
+                .SelectMany(u => u.Lessons.OrderBy(l => l.Order))
+                .Take(plan.GetValueOrDefault(s.Slug))
+                .Select(l => l.Id))
+            .ToList();
+
+        // Spread the activity over the last days so the streak and the activity log look real
+        var now = DateTime.UtcNow;
+        student.CompletedLessons = lessonIds
+            .Select((id, i) => new LessonCompletion { LessonId = id, CompletedAt = now.AddDays(-(lessonIds.Count - 1 - i) / 3.0) })
+            .ToList();
+
+        var results = new[] { ("math", 0, 4), ("math", 1, 3), ("physics", 0, 5) };
+        foreach (var (slug, index, score) in results)
+        {
+            var exam = db.Exams.Include(e => e.Questions).Where(e => e.Subject!.Slug == slug).OrderBy(e => e.Id).Skip(index).FirstOrDefault();
+            if (exam == null) continue;
+
+            var total = exam.Questions.Count;
+            student.ExamAttempts.Add(new ExamAttempt
+            {
+                ExamId = exam.Id,
+                Score = System.Math.Min(score, total),
+                TotalQuestions = total,
+                Percent = Dtos.Mappings.PercentOf(System.Math.Min(score, total), total),
+                SubmittedAt = now.AddHours(-6 * student.ExamAttempts.Count - 2)
+            });
+        }
+
+        db.Students.Add(student);
         db.SaveChanges();
     }
 
