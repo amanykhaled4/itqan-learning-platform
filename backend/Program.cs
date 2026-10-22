@@ -67,10 +67,14 @@ builder.Services.AddSwaggerGen(options =>
 
 var app = builder.Build();
 
-// Never run a real deployment with the placeholder key from appsettings.json
+// Never sign tokens with the placeholder key from appsettings.json. Without a real Jwt__Key,
+// a random key is made at startup: secure, but everyone is logged out when the server restarts.
 var jwtKey = app.Configuration["Jwt:Key"] ?? "";
 if (!app.Environment.IsDevelopment() && (jwtKey.Length < 32 || jwtKey.StartsWith("set-a-real-secret")))
-    throw new InvalidOperationException("Set a real Jwt__Key (at least 32 characters) before running outside development.");
+{
+    app.Configuration["Jwt:Key"] = Convert.ToBase64String(System.Security.Cryptography.RandomNumberGenerator.GetBytes(48));
+    app.Logger.LogWarning("Jwt__Key is not set; using a random key for this run. Set Jwt__Key to keep logins across restarts.");
+}
 
 // ---------- Create / update the database and add the starting content ----------
 using (var scope = app.Services.CreateScope())

@@ -139,7 +139,7 @@ All endpoints except register and login need an `Authorization: Bearer <token>` 
 
 ## Configuration
 
-`backend/appsettings.Development.json` contains a development-only JWT key. For any real deployment, set your own secret with an environment variable — outside development the API refuses to start with the placeholder key:
+`backend/appsettings.Development.json` contains a development-only JWT key. Outside development the placeholder key is never used: without `Jwt__Key` the API generates a random key at startup (secure, but everyone is logged out when the server restarts). To keep logins across restarts, set your own secret:
 
 ```bash
 Jwt__Key="a-long-random-secret"
