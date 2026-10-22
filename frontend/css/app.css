@@ -969,6 +969,10 @@ button.row:hover {
     margin-top: var(--space-2);
 }
 
+.row-body .pill {
+    display: inline-flex;
+}
+
 .row-end {
     flex-shrink: 0;
     color: var(--muted-2);
@@ -1028,115 +1032,219 @@ a.row:hover .arrow {
     }
 }
 
-/* ---------- Hero (dashboard) ---------- */
+/* ---------- Dashboard ---------- */
 
-.hero {
+/* Welcome banner with the next lesson */
+.welcome {
     position: relative;
     overflow: hidden;
-    min-height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--surface-2), var(--surface));
-    container-type: inline-size;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 380px);
+    gap: var(--space-6);
+    align-items: center;
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+    color: #fff;
+    box-shadow: var(--shadow);
 }
 
-.hero::before {
+.welcome::before {
     content: "";
     position: absolute;
-    width: 340px;
-    height: 340px;
-    inset-inline-end: -150px;
-    bottom: -170px;
+    width: 320px;
+    height: 320px;
+    inset-inline-start: -120px;
+    bottom: -200px;
     border-radius: 50%;
-    background: rgba(244, 184, 96, .1);
-}
-
-.hero > * {
-    position: relative;
-    z-index: 1;
-}
-
-.hero .pill {
-    width: fit-content;
-    margin-bottom: var(--space-4);
-}
-
-.hero h2 {
-    max-width: 520px;
-    font-size: var(--fs-3xl);
-    font-weight: 800;
-    line-height: 1.35;
-}
-
-.hero h2 span {
-    color: var(--gold-dark);
-}
-
-.hero p {
-    max-width: 480px;
-    margin: var(--space-3) 0 var(--space-6);
-    color: var(--muted);
-    line-height: 1.9;
-}
-
-.hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-}
-
-.hero-decoration {
-    position: absolute;
-    top: 50%;
-    inset-inline-end: 48px;
-    width: 220px;
-    height: 220px;
-    transform: translateY(-50%);
+    background: radial-gradient(circle, rgba(244, 184, 96, .22), transparent 70%);
     pointer-events: none;
 }
 
-/* Hide the decoration when the card is too narrow to keep it clear of the text */
-@container (max-width: 760px) {
-    .hero-decoration {
-        display: none;
-    }
+.welcome > * {
+    position: relative;
 }
 
-.hero-decoration::before,
-.hero-decoration::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid var(--border);
-}
-
-.hero-decoration::before {
-    inset: 0;
-}
-
-.hero-decoration::after {
-    inset: 34px;
-    background: rgba(244, 184, 96, .08);
-}
-
-.hero-decoration i {
-    position: absolute;
-    inset: 70px;
-    z-index: 1;
-    display: grid;
-    place-items: center;
-    border-radius: 24px;
-    background: var(--navy-2);
+.welcome-date {
+    display: block;
+    margin-bottom: var(--space-2);
     color: var(--gold);
-    font-size: 30px;
-    box-shadow: var(--shadow-lg);
-    animation: float 4s ease-in-out infinite;
+    font-size: var(--fs-sm);
+    font-weight: 700;
 }
 
-@keyframes float {
-    0%, 100% { transform: rotate(-8deg) translateY(0); }
-    50% { transform: rotate(-3deg) translateY(-8px); }
+.welcome h2 {
+    font-size: var(--fs-2xl);
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.welcome p {
+    max-width: 560px;
+    margin-top: var(--space-2);
+    color: rgba(255, 255, 255, .72);
+    line-height: 1.9;
+}
+
+.next-lesson {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    min-height: 168px;
+    padding: var(--space-5);
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, .06);
+    backdrop-filter: blur(6px);
+}
+
+.next-lesson .eyebrow {
+    color: var(--gold);
+}
+
+.next-lesson .skeleton {
+    background: rgba(255, 255, 255, .06);
+    animation: none;
+}
+
+.next-body {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.next-title {
+    display: block;
+    font-size: var(--fs-lg);
+    font-weight: 800;
+    line-height: 1.4;
+}
+
+.next-body small {
+    color: rgba(255, 255, 255, .65);
+    font-size: var(--fs-sm);
+}
+
+.next-lesson .btn {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+/* Key numbers */
+.kpi {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+}
+
+.kpi-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+}
+
+.kpi-head > span:first-child {
+    color: var(--muted);
+    font-size: var(--fs-sm);
+    font-weight: 600;
+}
+
+.kpi b {
+    font-size: var(--fs-3xl);
+}
+
+.kpi small {
+    color: var(--muted-2);
+    font-size: var(--fs-xs);
+}
+
+.kpi .progress {
+    height: 6px;
+    margin-block: 7px;
+}
+
+/* Subject cards */
+.subject-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+}
+
+.subject-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    padding: var(--space-5);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--surface-2);
+    transition: transform .2s ease, border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+
+.subject-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--gold);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.subject-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
+}
+
+.subject-card strong {
+    font-size: var(--fs-lg);
+    font-weight: 800;
+}
+
+.subject-card > small {
+    color: var(--muted);
+    font-size: var(--fs-sm);
+}
+
+.subject-card .progress {
+    margin-top: var(--space-4);
+    background: var(--border);
+}
+
+.subject-card-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: var(--space-2);
+    color: var(--muted);
+    font-size: var(--fs-xs);
+}
+
+.subject-card:hover .arrow {
+    color: var(--gold-text);
+    transform: translateX(calc(var(--dir, 1) * -3px));
+}
+
+/* A card whose last block fills the remaining height (empty states stay centred) */
+.card-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-column > :last-child {
+    flex: 1;
+}
+
+.card-column .empty-state {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+}
+
+.card-head .link {
+    font-size: var(--fs-sm);
+    white-space: nowrap;
 }
 
 /* ---------- Page header (course, exam, lesson) ---------- */
@@ -1769,8 +1877,9 @@ a.row:hover .arrow {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    .hero-decoration {
-        opacity: .35;
+    .welcome,
+    .grid-3 {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1852,8 +1961,20 @@ a.row:hover .arrow {
         padding: var(--space-4);
     }
 
-    .hero-decoration {
-        display: none;
+    .welcome {
+        padding: var(--space-5);
+    }
+
+    .subject-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kpi {
+        align-items: stretch;
+    }
+
+    .kpi b {
+        font-size: var(--fs-2xl);
     }
 
     .page-header {

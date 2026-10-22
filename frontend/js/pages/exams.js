@@ -31,7 +31,7 @@ function renderStats(exams, attempts, progress) {
         stat("fa-layer-group", "blue", exams.length, "statTotalExams") +
         stat("fa-unlock", "green", exams.filter((e) => e.isAvailable).length, "statAvailable") +
         stat("fa-pen-to-square", "gold", attempts.length, "statAttempts") +
-        stat("fa-star", "purple", `${progress.averageScore}%`, "statAverage");
+        stat("fa-star", "purple", progress.examsTaken ? `${progress.averageScore}%` : "—", "statAverage");
 }
 
 function renderExams(exams) {

@@ -63,7 +63,7 @@ function renderStats(progress) {
     document.getElementById("stats").innerHTML =
         stat("fa-book-open", "blue", `${progress.completedLessons}/${progress.totalLessons}`, "statLessons") +
         stat("fa-clipboard-check", "green", progress.examsTaken, "statExams") +
-        stat("fa-star", "purple", `${progress.averageScore}%`, "statAverage") +
+        stat("fa-star", "purple", progress.examsTaken ? `${progress.averageScore}%` : "—", "statAverage") +
         stat("fa-fire", "red", progress.streakDays, "statStreak");
 }
 

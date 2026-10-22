@@ -4,7 +4,7 @@ A bilingual (Arabic / English) learning platform for secondary-school students: 
 
 Built with **ASP.NET Core 10** (REST API, JWT, EF Core + SQLite) and a **vanilla HTML / CSS / JavaScript** front end — no framework, no build step.
 
-![Dashboard](docs/screenshots/dashboard.jpg)
+![Dashboard](docs/screenshots/dashboard.png)
 
 ## Features
 
@@ -14,7 +14,8 @@ Built with **ASP.NET Core 10** (REST API, JWT, EF Core + SQLite) and a **vanilla
 - Timed multiple-choice exams with a progress bar and auto-submit when time runs out
 - Answers are graded **on the server** — the correct option is never sent to the browser before submission
 - Result screen with score and a per-question review of right and wrong answers
-- Dashboard and progress pages: overall percentage, per-subject progress, average score, day streak and recent activity
+- Dashboard built around "what's next": the next unfinished lesson, key numbers, progress per subject, recent activity and suggested exams (untried first, then the weakest scores)
+- Progress page: overall percentage, next milestone, per-subject progress, average score and day streak
 - Profile editing and password change
 - Notifications for completed lessons and exams
 
@@ -26,15 +27,17 @@ Built with **ASP.NET Core 10** (REST API, JWT, EF Core + SQLite) and a **vanilla
 
 ## Screenshots
 
-| Login | Course |
+| Dashboard — dark mode, English | Login |
 |---|---|
-| ![Login](docs/screenshots/login.jpg) | ![Course](docs/screenshots/course.jpg) |
+| ![Dashboard in English, dark mode](docs/screenshots/dashboard-dark-en.png) | ![Login](docs/screenshots/login.png) |
 
-| Exams | Progress — dark mode, English |
+| Course | Exams |
 |---|---|
-| ![Exams](docs/screenshots/exams.jpg) | ![Progress](docs/screenshots/progress-dark-en.jpg) |
+| ![Course](docs/screenshots/course.png) | ![Exams](docs/screenshots/exams.png) |
 
-<p align="center"><img src="docs/screenshots/mobile.jpg" width="260" alt="Mobile view"></p>
+| Progress | Mobile |
+|---|---|
+| ![Progress](docs/screenshots/progress.png) | <img src="docs/screenshots/mobile.png" width="260" alt="Mobile view"> |
 
 ## Tech stack
 

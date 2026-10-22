@@ -20,7 +20,19 @@
 
         <div class="container stack">
 
-            <!-- Stats -->
+            <!-- Welcome + next lesson -->
+            <section class="welcome">
+                <div class="welcome-text">
+                    <span class="welcome-date" id="today"></span>
+                    <h2 id="greeting"></h2>
+                    <p id="summary"></p>
+                </div>
+                <div class="next-lesson" id="nextLesson">
+                    <div class="skeleton fill"></div>
+                </div>
+            </section>
+
+            <!-- Key numbers -->
             <section class="grid grid-4" id="stats">
                 <div class="skeleton row"></div>
                 <div class="skeleton row"></div>
@@ -30,22 +42,6 @@
 
             <div class="layout-main-side equal">
 
-                <!-- Hero -->
-                <section class="card hero">
-                    <span class="pill gold"><i class="fa-solid fa-star"></i><span data-i18n="heroPill"></span></span>
-                    <h2><span data-i18n="heroTitle1"></span> <span data-i18n="heroTitle2"></span></h2>
-                    <p data-i18n="heroText"></p>
-                    <div class="hero-actions">
-                        <a href="#" class="btn btn-primary" id="continueBtn">
-                            <i class="fa-solid fa-play"></i><span data-i18n="continueLearning"></span>
-                        </a>
-                        <a href="exams.html" class="btn btn-outline">
-                            <i class="fa-solid fa-clipboard-check"></i><span data-i18n="browseExams"></span>
-                        </a>
-                    </div>
-                    <div class="hero-decoration"><i class="fa-solid fa-star"></i></div>
-                </section>
-
                 <!-- Subjects -->
                 <section class="card">
                     <div class="card-head">
@@ -53,8 +49,9 @@
                             <span class="eyebrow" data-i18n="subjectsEyebrow"></span>
                             <h2 data-i18n="subjectsTitle"></h2>
                         </div>
+                        <a href="progress.html" class="link" data-i18n="viewDetails"></a>
                     </div>
-                    <div class="list" id="subjects">
+                    <div class="subject-grid" id="subjects">
                         <div class="skeleton row"></div>
                         <div class="skeleton row"></div>
                         <div class="skeleton row"></div>
@@ -62,14 +59,34 @@
                     </div>
                 </section>
 
+                <!-- Recent activity -->
+                <section class="card card-column">
+                    <div class="card-head">
+                        <div>
+                            <span class="eyebrow" data-i18n="activityEyebrow"></span>
+                            <h2 data-i18n="recentActivity"></h2>
+                        </div>
+                    </div>
+                    <div class="timeline" id="activity">
+                        <div class="skeleton row"></div>
+                    </div>
+                </section>
+
             </div>
 
-            <!-- Motivation -->
-            <section class="card card-inline">
-                <span class="tile gold"><i class="fa-solid fa-star"></i></span>
-                <div class="row-body">
-                    <strong data-i18n="motivationTitle"></strong>
-                    <span data-i18n="motivationText"></span>
+            <!-- Suggested exams -->
+            <section class="card">
+                <div class="card-head">
+                    <div>
+                        <span class="eyebrow" data-i18n="examsEyebrow"></span>
+                        <h2 data-i18n="suggestedExams"></h2>
+                    </div>
+                    <a href="exams.html" class="link" data-i18n="viewAll"></a>
+                </div>
+                <div class="grid grid-3" id="exams">
+                    <div class="skeleton row"></div>
+                    <div class="skeleton row"></div>
+                    <div class="skeleton row"></div>
                 </div>
             </section>
 
