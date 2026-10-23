@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/amanykhaled4/itqan-learning-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/amanykhaled4/itqan-learning-platform/actions/workflows/ci.yml)
 
+🔗 **Live demo:** http://itqan-learning.runasp.net (press *Try the demo account* on the login page)
+
 A bilingual (Arabic / English) learning platform for secondary-school students: lessons organised by subject and unit, timed exams graded on the server, and a personal dashboard that tracks progress.
 
 Built with **ASP.NET Core 10** (REST API, JWT, EF Core + SQLite) and a **vanilla HTML / CSS / JavaScript** front end — no framework, no build step.
@@ -162,5 +164,7 @@ On the free plan the SQLite database lives inside the container, so it starts fr
 ## بالعربي
 
 **إتقان** منصة تعليمية لطلاب المرحلة الثانوية: دروس مقسّمة إلى مواد ووحدات، واختبارات بوقت محدد تُصحَّح على السيرفر، ولوحة تحكم تتابع تقدّم الطالب. الواجهة تدعم العربية والإنجليزية والوضع الليلي وتعمل على الموبايل.
+
+**النسخة الحية:** http://itqan-learning.runasp.net
 
 للتشغيل: ثبّت ‎.NET 10 SDK ثم نفّذ `dotnet run --project backend` وافتح http://localhost:5111، واضغط «جرّب الحساب التجريبي» للدخول مباشرة.
