@@ -4,6 +4,7 @@ using ItqanApi.Models;
 using ItqanApi.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
@@ -12,8 +13,13 @@ using Microsoft.OpenApi;
 var builder = WebApplication.CreateBuilder(args);
 
 // ---------- Database ----------
+// A relative SQLite path is placed next to the app, so it works the same under IIS, Docker and dotnet run
+var sqlite = new SqliteConnectionStringBuilder(builder.Configuration.GetConnectionString("Default"));
+if (!string.IsNullOrEmpty(sqlite.DataSource) && sqlite.DataSource != ":memory:" && !Path.IsPathRooted(sqlite.DataSource))
+    sqlite.DataSource = Path.Combine(builder.Environment.ContentRootPath, sqlite.DataSource);
+
 builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("Default")));
+    options.UseSqlite(sqlite.ToString()));
 
 // ---------- Services ----------
 builder.Services.AddScoped<TokenService>();
@@ -89,6 +95,9 @@ app.UseSwaggerUI();
 
 // ---------- Serve the front end from ../frontend, so one command runs the whole platform ----------
 var frontendPath = Path.GetFullPath(Path.Combine(builder.Environment.ContentRootPath, builder.Configuration["FrontendPath"] ?? "../frontend"));
+// A published build (dotnet publish / Visual Studio Publish) carries the front end in its own "frontend" folder
+if (!Directory.Exists(frontendPath))
+    frontendPath = Path.Combine(builder.Environment.ContentRootPath, "frontend");
 if (Directory.Exists(frontendPath))
 {
     var files = new PhysicalFileProvider(frontendPath);
